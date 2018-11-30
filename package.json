@@ -1,0 +1,23 @@
+{
+  "name": "hzytql",
+  "version": "1.0.0",
+  "description": "Week 4 Task",
+  "main": "main.js",
+  "dependencies": {
+    "electron": "^3.0.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "./node_modules/electron/dist/electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gz.maniacata.com:hzytql.git"
+  },
+  "keywords": [
+    "music",
+    "player\\"
+  ],
+  "author": "811 front-end noobs",
+  "license": "MIT"
+}
