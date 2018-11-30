@@ -1,0 +1,29 @@
+$title_bar_height:48px;
+.app-window__titlebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $title_bar_height;
+    background: #333; // display: inline-flex;
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+    .titlebar-control {
+        height: 100%;
+        -webkit-app-region: no-drag;
+        float: right;
+        margin: {
+            right: $title_bar_height/8;
+        }
+        .titlebar-control__button {
+            width: $title_bar_height/2;
+            height: $title_bar_height/2;
+            margin: {
+                top: $title_bar_height/4;
+                bottom: $title_bar_height/4;
+                left: $title_bar_height/16;
+                right: $title_bar_height/16;
+            }
+        }
+    }
+}
