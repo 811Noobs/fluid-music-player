@@ -1,5 +1,5 @@
 {
-  "name": "hzytql",
+  "name": "hzytql-music-player",
   "version": "1.0.0",
   "description": "Week 4 Task",
   "main": "main.js",
@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "./node_modules/electron/dist/electron ."
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   },
   "keywords": [
     "music",
-    "player\\"
+    "player"
   ],
   "author": "811 front-end noobs",
   "license": "MIT"
