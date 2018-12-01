@@ -33,6 +33,39 @@
 
         </div>
 
+        <!--bottom bar ; include controller / time bar / volume / play mode / audio-->
+        <div class="app-window__bottombar">
+            <!--controller-->
+            <div class="bottombar-control__controller">
+                <a class="bottombar-control__button--previous"></a>
+                <a class="bottombar-control__button--pause"></a>
+                <a class="bottombar-control__button--play"></a>
+                <a class="bottombar-control__button--next"></a>
+            </div>
+            <!--time bar-->
+            <div class="bottombar-control__timebar">
+                <span class="timebar-time__current">00:00</span>
+                <div class="timebar-time__progressbar">
+                    <div class="progressbar-whole"></div>
+                    <div class="progressbar-current"></div>
+                </div>
+                <span class="timebar-time__whole">00:00</span>
+            </div>
+            <!--volume-->
+            <div class="bottombar-control__volume">
+                <div class="volume-icon">
+                    <img src="resources/images/loud.png" class="volume-icon__open">
+                </div>
+                <div class="volume-louder">
+                    <div class="volume-louder__whole"></div>
+                    <div class="volume-louder__current"></div>
+                </div>
+            </div>
+            <!--play mode-->
+            <div class="bottombar-control__playmode">
+                <img src="resources/images/repeat.png" class="playmode-icon__repeat">
+            </div>
+        </div>
     </div>
 </body>
 

@@ -1,0 +1,112 @@
+$bottom-bar-height: 60px;
+.app-window__bottombar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: $bottom-bar-height;
+  display: flex;
+  align-items: center;
+  -webkit-user-select: none;
+  background-color: white;
+  //controller
+  .bottombar-control__controller {
+    margin: 0 auto;
+    width: 16%;
+    height: $bottom-bar-height*0.8;
+    display: flex;
+    justify-content: center;
+    a {
+      height: $bottom-bar-height*0.8;
+      width: $bottom-bar-height*0.8;
+      img {
+        width: 100%;
+        height: 100%;
+        vertical-align: center;
+      }
+    }
+    .bottombar-control__button--pause {
+      display: none;
+    }
+  }
+  //timeProgressBar
+  .bottombar-control__timebar {
+    width: 60%;
+    height: $bottom-bar-height*0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      display: inline-block;
+      width: 10%;
+      font-size: $bottom-bar-height*0.2;
+      padding: auto $bottom-bar-height*0.05;
+      text-align: center;
+    }
+    .timebar-time__progressbar {
+      width: 80%;
+      display: flex;
+      vertical-align: central;
+      height: $bottom-bar-height*0.1;
+      .progressbar-current {
+        background: -webkit-gradient(linear, left top, right top, from(rgb(169, 178, 253)), to(rgb(186, 216, 250)));
+        width: 100%;
+        border-radius: $bottom-bar-height*0.05;
+      }
+      .progressbar-whole {
+        height: $bottom-bar-height*0.1;
+        border-radius: $bottom-bar-height*0.05;
+        background-color: rgb(226, 226, 226);
+        position: absolute;
+        z-index: -1;
+        width: 48vw;
+      }
+    }
+  }
+  //volume bar
+  .bottombar-control__volume {
+    width: 16%;
+    height: $bottom-bar-height*0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .volume-icon{
+      width: 20%;
+      img{
+        width: $bottom-bar-height*0.2;
+        height: $bottom-bar-height*0.2;
+        vertical-align: center;
+      }
+    }
+    .volume-louder{
+      width: 80%;
+      display: flex;
+      vertical-align: central;
+      height: $bottom-bar-height*0.1;
+      .volume-louder__current{
+        background: -webkit-gradient(linear, left top, right top, from(rgb(169, 178, 253)), to(rgb(186, 216, 250)));
+        width: 100%;
+        border-radius: $bottom-bar-height*0.05;
+      }
+      .volume-louder__whole{
+        height: $bottom-bar-height*0.1;
+        border-radius: $bottom-bar-height*0.05;
+        background-color: rgb(226, 226, 226);
+        position: absolute;
+        z-index: -1;
+        width: 12.8vw;
+      }
+    }
+  }
+  .bottombar-control__playmode{
+    width: 8%;
+    height: $bottom-bar-height*0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+      width: $bottom-bar-height*0.2;
+      height: $bottom-bar-height*0.2;
+      vertical-align: center;
+    }
+  }
+}

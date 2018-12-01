@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const {app, BrowserWindow} = require('electron');
 /* const sass = require('node-sass');
 sass.render({
     file: "./resources/sass/titlebar.sass",
@@ -9,7 +9,8 @@ sass.render({
 
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
 // 垃圾回收的时候，window对象将会自动的关闭
-let win;
+//loading is loading window
+let win, loading;
 
 function createWindow() {
     // 创建浏览器窗口。
@@ -17,11 +18,27 @@ function createWindow() {
         width: 800,
         height: 600,
         frame: false,
+        show: false,
     });
-
-    // 然后加载应用的 index.html。
+    loading = new BrowserWindow({
+        width: 800,
+        height: 600,
+        frame: false,
+        show: false,
+    });
+    loading.loadFile('loading.html');
     win.loadFile('app.html');
-
+    loading.once('ready-to-show', () => {
+        loading.show();
+        win.once('ready-to-show', () => {
+            let time = new Date();
+            while (new Date() - time < 3000) //阻塞，延时
+                ;
+            loading.close();
+            loading = null;
+            win.show();
+        })
+    });
     // 打开开发者工具
     //win.webContents.openDevTools()
 
@@ -46,7 +63,7 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
     }
-})
+});
 
 app.on('activate', () => {
     // 在macOS上，当单击dock图标并且没有其他窗口打开时，
@@ -54,7 +71,7 @@ app.on('activate', () => {
     if (win === null) {
         createWindow();
     }
-})
+});
 
 // 在这个文件中，你可以续写应用剩下主进程代码。
 // 也可以拆分成几个文件，然后用 require 导入。
