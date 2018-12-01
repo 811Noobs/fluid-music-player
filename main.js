@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
+
 /* const sass = require('node-sass');
 sass.render({
     file: "./resources/sass/titlebar.sass",
@@ -23,7 +24,7 @@ function createWindow() {
     win.loadFile('app.html');
 
     // 打开开发者工具
-    //win.webContents.openDevTools()
+    win.webContents.openDevTools();
 
     // 当 window 被关闭，这个事件会被触发。
     win.on('closed', () => {
@@ -32,6 +33,25 @@ function createWindow() {
         // 与此同时，你应该删除相应的元素。
         win = null;
     });
+
+
+    const ipc = ipcMain;
+
+    //登录窗口最小化
+    ipc.on('window-min', function () {
+        win.minimize();
+    })
+    //登录窗口最大化
+    ipc.on('window-max', function () {
+        if (win.isMaximized()) {
+            win.restore();
+        } else {
+            win.maximize();
+        }
+    })
+    ipc.on('window-close', function () {
+        win.close();
+    })
 }
 
 // Electron 会在初始化后并准备
@@ -46,7 +66,7 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
     }
-})
+});
 
 app.on('activate', () => {
     // 在macOS上，当单击dock图标并且没有其他窗口打开时，
@@ -54,7 +74,8 @@ app.on('activate', () => {
     if (win === null) {
         createWindow();
     }
-})
+});
 
 // 在这个文件中，你可以续写应用剩下主进程代码。
 // 也可以拆分成几个文件，然后用 require 导入。
+

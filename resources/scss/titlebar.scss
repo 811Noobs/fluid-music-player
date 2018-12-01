@@ -8,7 +8,8 @@ $title_bar_height:48px;
     background: #333; // display: inline-flex;
     -webkit-app-region: drag;
     -webkit-user-select: none;
-    .titlebar-control {
+    .titlebar-control,
+    .titlebar-secondary {
         height: 100%;
         -webkit-app-region: no-drag;
         float: right;
@@ -19,10 +20,17 @@ $title_bar_height:48px;
             width: $title_bar_height/2;
             height: $title_bar_height/2;
             margin: {
+                // to centerize these buttons
                 top: $title_bar_height/4;
                 bottom: $title_bar_height/4;
                 left: $title_bar_height/16;
                 right: $title_bar_height/16;
+            }
+            border-radius: 50%;
+            border: #eee;
+            background: #fff;
+            &:focus {
+                outline: none;
             }
         }
     }
