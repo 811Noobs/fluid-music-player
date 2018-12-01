@@ -6,22 +6,19 @@
   height: 48px;
   background: #333;
   -webkit-app-region: drag;
-  -webkit-user-select: none;
-}
-.app-window__titlebar .titlebar-control {
-  height: 100%;
-  -webkit-app-region: no-drag;
-  float: right;
-  margin-right: 6px;
-}
-.app-window__titlebar .titlebar-control .titlebar-control__button {
-  width: 24px;
-  height: 24px;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  margin-left: 3px;
-  margin-right: 3px;
-}
+  -webkit-user-select: none; }
+  .app-window__titlebar .titlebar-control {
+    height: 100%;
+    -webkit-app-region: no-drag;
+    float: right;
+    margin-right: 6px; }
+    .app-window__titlebar .titlebar-control .titlebar-control__button {
+      width: 24px;
+      height: 24px;
+      margin-top: 12px;
+      margin-bottom: 12px;
+      margin-left: 3px;
+      margin-right: 3px; }
 
 .app-window__bottombar {
   position: fixed;
@@ -31,109 +28,88 @@
   display: flex;
   align-items: center;
   -webkit-user-select: none;
-  background-color: white;
-}
-.app-window__bottombar .bottombar-control__controller {
-  margin: 0 auto;
-  width: 16%;
-  height: 48px;
-  display: flex;
-  justify-content: center;
-}
-.app-window__bottombar .bottombar-control__controller a {
-  height: 48px;
-  width: 48px;
-}
-.app-window__bottombar .bottombar-control__controller a img {
-  width: 100%;
-  height: 100%;
-  vertical-align: center;
-}
-.app-window__bottombar .bottombar-control__controller .bottombar-control__button--pause {
-  display: none;
-}
-.app-window__bottombar .bottombar-control__timebar {
-  width: 60%;
-  height: 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.app-window__bottombar .bottombar-control__timebar span {
-  display: inline-block;
-  width: 10%;
-  font-size: 12px;
-  padding: auto 3px;
-  text-align: center;
-}
-.app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar {
-  width: 80%;
-  display: flex;
-  vertical-align: central;
-  height: 6px;
-}
-.app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-current {
-  background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
-  width: 100%;
-  border-radius: 3px;
-}
-.app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-whole {
-  height: 6px;
-  border-radius: 3px;
-  background-color: #e2e2e2;
-  position: absolute;
-  z-index: -1;
-  width: 48vw;
-}
-.app-window__bottombar .bottombar-control__volume {
-  width: 16%;
-  height: 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.app-window__bottombar .bottombar-control__volume .volume-icon {
-  width: 20%;
-}
-.app-window__bottombar .bottombar-control__volume .volume-icon img {
-  width: 12px;
-  height: 12px;
-  vertical-align: center;
-}
-.app-window__bottombar .bottombar-control__volume .volume-louder {
-  width: 80%;
-  display: flex;
-  vertical-align: central;
-  height: 6px;
-}
-.app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__current {
-  background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
-  width: 100%;
-  border-radius: 3px;
-}
-.app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__whole {
-  height: 6px;
-  border-radius: 3px;
-  background-color: #e2e2e2;
-  position: absolute;
-  z-index: -1;
-  width: 12.8vw;
-}
-.app-window__bottombar .bottombar-control__playmode {
-  width: 8%;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.app-window__bottombar .bottombar-control__playmode img {
-  width: 12px;
-  height: 12px;
-  vertical-align: center;
-}
+  background-color: white; }
+  .app-window__bottombar .bottombar-control__controller {
+    margin: 0 auto;
+    width: 16%;
+    height: 48px;
+    display: flex;
+    justify-content: center; }
+    .app-window__bottombar .bottombar-control__controller a {
+      height: 48px;
+      width: 48px; }
+      .app-window__bottombar .bottombar-control__controller a img {
+        width: 100%;
+        height: 100%;
+        vertical-align: center; }
+    .app-window__bottombar .bottombar-control__controller .bottombar-control__button--pause {
+      display: none; }
+  .app-window__bottombar .bottombar-control__timebar {
+    width: 60%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .app-window__bottombar .bottombar-control__timebar span {
+      display: inline-block;
+      width: 10%;
+      font-size: 12px;
+      padding: auto 3px;
+      text-align: center; }
+    .app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar {
+      width: 80%;
+      display: flex;
+      vertical-align: central;
+      height: 6px; }
+      .app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-current {
+        background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
+        width: 100%;
+        border-radius: 3px; }
+      .app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-whole {
+        height: 6px;
+        border-radius: 3px;
+        background-color: #e2e2e2;
+        position: absolute;
+        z-index: -1;
+        width: 48vw; }
+  .app-window__bottombar .bottombar-control__volume {
+    width: 16%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .app-window__bottombar .bottombar-control__volume .volume-icon {
+      width: 20%; }
+      .app-window__bottombar .bottombar-control__volume .volume-icon img {
+        width: 12px;
+        height: 12px;
+        vertical-align: center; }
+    .app-window__bottombar .bottombar-control__volume .volume-louder {
+      width: 80%;
+      display: flex;
+      vertical-align: central;
+      height: 6px; }
+      .app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__current {
+        background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
+        width: 100%;
+        border-radius: 3px; }
+      .app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__whole {
+        height: 6px;
+        border-radius: 3px;
+        background-color: #e2e2e2;
+        position: absolute;
+        z-index: -1;
+        width: 12.8vw; }
+  .app-window__bottombar .bottombar-control__playmode {
+    width: 8%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .app-window__bottombar .bottombar-control__playmode img {
+      width: 12px;
+      height: 12px;
+      vertical-align: center; }
 
 body {
-  background: #222;
-}
-
-/*# sourceMappingURL=style.css.map */
+  background: #222; }
