@@ -7,18 +7,26 @@
   background: #333;
   -webkit-app-region: drag;
   -webkit-user-select: none; }
-  .app-window__titlebar .titlebar-control {
+  .app-window__titlebar .titlebar-control,
+  .app-window__titlebar .titlebar-secondary {
     height: 100%;
     -webkit-app-region: no-drag;
     float: right;
     margin-right: 6px; }
-    .app-window__titlebar .titlebar-control .titlebar-control__button {
+    .app-window__titlebar .titlebar-control .titlebar-control__button,
+    .app-window__titlebar .titlebar-secondary .titlebar-control__button {
       width: 24px;
       height: 24px;
       margin-top: 12px;
       margin-bottom: 12px;
       margin-left: 3px;
-      margin-right: 3px; }
+      margin-right: 3px;
+      border-radius: 50%;
+      border: #eee;
+      background: #fff; }
+      .app-window__titlebar .titlebar-control .titlebar-control__button:focus,
+      .app-window__titlebar .titlebar-secondary .titlebar-control__button:focus {
+        outline: none; }
 
 .app-window__bottombar {
   position: fixed;
