@@ -1,5 +1,20 @@
 @import "titlebar.scss";
 @import "bottombar.scss";
+@import "sidebar.scss";
+@import "hue.scss";
+@font-face {
+    font-family: "Huawen Hupo";
+    src: url("../fonts/huawen_hupo.woff2");
+}
+
 body {
-    background: #222;
+    background: #FFF;
+    margin: 0;
+    font-family: "Microsoft Yahei", "ping fang";
+}
+
+.app-window {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
 }

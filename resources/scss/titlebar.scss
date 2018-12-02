@@ -1,13 +1,17 @@
-$title_bar_height:48px;
+@import "hue.scss";
+$title_bar_height:60px;
+$title_bar_button_size:20px;
 .app-window__titlebar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: $title_bar_height;
-    background: #333; // display: inline-flex;
+    background: #fff; // display: inline-flex;
     -webkit-app-region: drag;
     -webkit-user-select: none;
+    box-shadow: $titlebar_shadow 0px 0px 16px 16px;
+    z-index: 100;
     .titlebar-control,
     .titlebar-secondary {
         height: 100%;
@@ -17,21 +21,36 @@ $title_bar_height:48px;
             right: $title_bar_height/8;
         }
         .titlebar-control__button {
-            width: $title_bar_height/2;
-            height: $title_bar_height/2;
+            width: $title_bar_button_size;
+            height: $title_bar_button_size;
             margin: {
                 // to centerize these buttons
-                top: $title_bar_height/4;
-                bottom: $title_bar_height/4;
+                top: ($title_bar_height - $title_bar_button_size)/2;
+                bottom: ($title_bar_height - $title_bar_button_size)/2;
                 left: $title_bar_height/16;
                 right: $title_bar_height/16;
             }
             border-radius: 50%;
             border: #eee;
+            color: #D1D1D1;
             background: #fff;
+            font-size: 20px;
+            padding: 0;
+            line-height: $title_bar_button_size;
+            box-shadow: #e7e6ff88 0px 8px 12px 0px;
             &:focus {
                 outline: none;
             }
         }
+    }
+    .app-icon {
+        float: left;
+        font-family: "Huawen Hupo";
+        line-height: $title_bar_height;
+        margin: 0;
+        padding-left: 24px;
+        background: linear-gradient(30deg, rgba(172, 184, 253, 1) 0%, rgba(187, 217, 250, 1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }

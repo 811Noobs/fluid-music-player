@@ -1,0 +1,55 @@
+@import "hue.scss";
+.app-content {
+    height: calc(100% - #{$bottom-bar-height + $title_bar_height});
+    margin-top: $title_bar_height; //float: left;
+    overflow: hidden;
+    width: 100%;
+}
+
+.app-content__section {
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    width: 20px;
+    background: #eee;
+}
+
+.app-content__sidebar {
+    position: relative;
+    height: 100%;
+    width: 200px;
+    background: #fff;
+    /* margin-left: -8px; */
+    box-shadow: $sidebar_shadow 0px 0px 16px 16px;
+    user-select: none; // transition: all .1s ease-in-out;
+    float: left;
+    .sidebar-content__list {
+        text-align: center;
+        padding: 0;
+        .sidebar-content__item {
+            list-style-type: none;
+            font-size: 16px;
+            line-height: 48px;
+            color: #B1B1B1;
+            transition: all .5s ease-in-out;
+            &:hover {
+                background: linear-gradient(30deg, rgba(172, 184, 253, 1) 0%, rgba(187, 217, 250, 1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+    .sidebar-resizer {
+        width: 24px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #00000000;
+        transition: background .25s ease-out;
+        &:hover {
+            background: #00000005;
+            cursor: col-resize;
+        }
+    }
+}

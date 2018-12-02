@@ -1,32 +1,48 @@
 .app-window__titlebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 48px;
-  background: #333;
+  height: 60px;
+  background: #fff;
   -webkit-app-region: drag;
-  -webkit-user-select: none; }
+  -webkit-user-select: none;
+  box-shadow: #f6f7fd 0px 0px 16px 16px;
+  z-index: 100; }
   .app-window__titlebar .titlebar-control,
   .app-window__titlebar .titlebar-secondary {
     height: 100%;
     -webkit-app-region: no-drag;
     float: right;
-    margin-right: 6px; }
+    margin-right: 7.5px; }
     .app-window__titlebar .titlebar-control .titlebar-control__button,
     .app-window__titlebar .titlebar-secondary .titlebar-control__button {
-      width: 24px;
-      height: 24px;
-      margin-top: 12px;
-      margin-bottom: 12px;
-      margin-left: 3px;
-      margin-right: 3px;
+      width: 20px;
+      height: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 3.75px;
+      margin-right: 3.75px;
       border-radius: 50%;
       border: #eee;
-      background: #fff; }
+      color: #D1D1D1;
+      background: #fff;
+      font-size: 20px;
+      padding: 0;
+      line-height: 20px;
+      box-shadow: #e7e6ff88 0px 8px 12px 0px; }
       .app-window__titlebar .titlebar-control .titlebar-control__button:focus,
       .app-window__titlebar .titlebar-secondary .titlebar-control__button:focus {
         outline: none; }
+  .app-window__titlebar .app-icon {
+    float: left;
+    font-family: "Huawen Hupo";
+    line-height: 60px;
+    margin: 0;
+    padding-left: 24px;
+    background: linear-gradient(30deg, #acb8fd 0%, #bbd9fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
 
 .app-window__bottombar {
   position: fixed;
@@ -36,7 +52,8 @@
   display: flex;
   align-items: center;
   -webkit-user-select: none;
-  background-color: white; }
+  background-color: white;
+  box-shadow: #f6f7fd 0px 0px 16px 16px; }
   .app-window__bottombar .bottombar-control__controller {
     margin: 0 auto;
     width: 16%;
@@ -119,5 +136,63 @@
       height: 12px;
       vertical-align: center; }
 
+.app-content {
+  height: calc(100% - 120px);
+  margin-top: 60px;
+  overflow: hidden;
+  width: 100%; }
+
+.app-content__section {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  width: 20px;
+  background: #eee; }
+
+.app-content__sidebar {
+  position: relative;
+  height: 100%;
+  width: 200px;
+  background: #fff;
+  /* margin-left: -8px; */
+  box-shadow: #f6f7fd 0px 0px 16px 16px;
+  user-select: none;
+  float: left; }
+  .app-content__sidebar .sidebar-content__list {
+    text-align: center;
+    padding: 0; }
+    .app-content__sidebar .sidebar-content__list .sidebar-content__item {
+      list-style-type: none;
+      font-size: 16px;
+      line-height: 48px;
+      color: #B1B1B1;
+      transition: all .5s ease-in-out; }
+      .app-content__sidebar .sidebar-content__list .sidebar-content__item:hover {
+        background: linear-gradient(30deg, #acb8fd 0%, #bbd9fa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; }
+  .app-content__sidebar .sidebar-resizer {
+    width: 24px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #00000000;
+    transition: background .25s ease-out; }
+    .app-content__sidebar .sidebar-resizer:hover {
+      background: #00000005;
+      cursor: col-resize; }
+
+@font-face {
+  font-family: "Huawen Hupo";
+  src: url("../fonts/huawen_hupo.woff2"); }
+
 body {
-  background: #222; }
+  background: #FFF;
+  margin: 0;
+  font-family: "Microsoft Yahei", "ping fang"; }
+
+.app-window {
+  position: absolute;
+  width: 100vw;
+  height: 100vh; }

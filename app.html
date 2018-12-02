@@ -14,40 +14,55 @@
         <!-- title bar, which includes title, search bar and button sets -->
         <!-- TODO: control buttons(minimalize,maximize,exit), secondary buttons, search bar -->
         <div class="app-window__titlebar">
+            <h1 class="app-icon fluid-logo">
+                Fluid
+            </h1>
             <div class="titlebar-control">
                 <button class="titlebar-control__button titlebar-control__button--min">-</button>
-                <button class="titlebar-control__button titlebar-control__button--max">+</button>
-                <button class="titlebar-control__button titlebar-control__button--exit">X</button>
+                <button class="titlebar-control__button titlebar-control__button--max">□</button>
+                <button class="titlebar-control__button titlebar-control__button--exit">×</button>
             </div>
-            <div class="titlebar-secondary">
+            <!-- <div class="titlebar-secondary">
                 <button class="titlebar-control__button ">1</button>
                 <button class="titlebar-control__button ">2</button>
                 <button class="titlebar-control__button ">3</button>
-            </div>
+            </div> -->
         </div>
 
-        <div class="app-window__sidebar">
-            <div class="sidebar-content sidebar-content__discovery">
-                <div class="sidebar-content__title">
-                    <img class="sidebar-content__icon">
-                    <h2 class="sidebar-content__heading">发现音乐</h2>
+
+
+        <!-- all contents should be there -->
+        <div class="app-content">
+
+            <div class="app-content__sidebar">
+                <!-- <div class="sidebar-content sidebar-content__discovery">
+                    <div class="sidebar-content__title">
+                        <img class="sidebar-content__icon">
+                        <h2 class="sidebar-content__heading">发现音乐</h2>
+                    </div>
+                    <ul class="sidebar-content__list">
+                        <li class="sidebar-content__item">最新歌曲</li>
+                        <li class="sidebar-content__item">热门歌曲</li>
+                        <li class="sidebar-content__item">歌曲推荐</li>
+                    </ul>
+                </div> -->
+                <div class="sidebar-content">
+                    <ul class="sidebar-content__list">
+                        <li class="sidebar-content__item">最新歌曲</li>
+                        <li class="sidebar-content__item">歌曲推荐</li>
+                        <li class="sidebar-content__item">我的收藏</li>
+                        <li class="sidebar-content__item">下载管理</li>
+                    </ul>
                 </div>
-                <ul class="sidebar-content__list">
-                    <li class="sidebar-content__item">最新歌曲</li>
-                    <li class="sidebar-content__item">热门歌曲</li>
-                    <li class="sidebar-content__item">歌曲推荐</li>
-                </ul>
-            </div>
-            <div class="sidebar-content sidebar-content__mymusic">
+
+                <div class="sidebar-resizer"></div>
             </div>
 
-            <!-- all contents should be there -->
-            <div class="app-content">
+            <!-- every pages should be wrapped in a section -->
 
-                <!-- every pages should be wrapped in a section -->
-
+            <div class="app-content__section">
                 <!-- home section -->
-                <section id="section-1" class="app-content__section">
+                <section id="section-1" class="section-wrapper">
 
                 </section>
 
@@ -91,6 +106,7 @@
     </div>
     <audio></audio>
     <script src="resources/js/taskbar.js"></script>
+    <script src="resources/js/appContent.js"></script>
 </body>
 
 </html>
