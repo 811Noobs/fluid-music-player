@@ -16,14 +16,14 @@ let win, loading;
 function createWindow() {
     // 创建浏览器窗口。
     win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1200,
+        height: 744,
         frame: false,
         show: false,
     });
     loading = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1200,
+        height: 744,
         frame: false,
         show: false,
     });
@@ -57,7 +57,7 @@ function createWindow() {
     //登录窗口最小化
     ipc.on('window-min', function () {
         win.minimize();
-    })
+    });
     //登录窗口最大化
     ipc.on('window-max', function () {
         if (win.isMaximized()) {
@@ -65,7 +65,7 @@ function createWindow() {
         } else {
             win.maximize();
         }
-    })
+    });
     ipc.on('window-close', function () {
         win.close();
     })

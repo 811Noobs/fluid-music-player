@@ -8,89 +8,101 @@
 </head>
 
 <body>
-    <!-- global window -->
-    <div class="app-window">
+<!-- global window -->
+<div class="app-window">
 
-        <!-- title bar, which includes title, search bar and button sets -->
-        <!-- TODO: control buttons(minimalize,maximize,exit), secondary buttons, search bar -->
-        <div class="app-window__titlebar">
-            <div class="titlebar-control">
-                <button class="titlebar-control__button titlebar-control__button--min">-</button>
-                <button class="titlebar-control__button titlebar-control__button--max">+</button>
-                <button class="titlebar-control__button titlebar-control__button--exit">X</button>
-            </div>
-            <div class="titlebar-secondary">
-                <button class="titlebar-control__button ">1</button>
-                <button class="titlebar-control__button ">2</button>
-                <button class="titlebar-control__button ">3</button>
-            </div>
+    <!-- title bar, which includes title, search bar and button sets -->
+    <!-- TODO: control buttons(minimalize,maximize,exit), secondary buttons, search bar -->
+    <div class="app-window__titlebar">
+        <div class="titlebar-control">
+            <button class="titlebar-control__button titlebar-control__button--min">-</button>
+            <button class="titlebar-control__button titlebar-control__button--max">+</button>
+            <button class="titlebar-control__button titlebar-control__button--exit">X</button>
         </div>
-
-        <div class="app-window__sidebar">
-            <div class="sidebar-content sidebar-content__discovery">
-                <div class="sidebar-content__title">
-                    <img class="sidebar-content__icon">
-                    <h2 class="sidebar-content__heading">发现音乐</h2>
-                </div>
-                <ul class="sidebar-content__list">
-                    <li class="sidebar-content__item">最新歌曲</li>
-                    <li class="sidebar-content__item">热门歌曲</li>
-                    <li class="sidebar-content__item">歌曲推荐</li>
-                </ul>
-            </div>
-            <div class="sidebar-content sidebar-content__mymusic">
-            </div>
-
-            <!-- all contents should be there -->
-            <div class="app-content">
-
-                <!-- every pages should be wrapped in a section -->
-
-                <!-- home section -->
-                <section id="section-1" class="app-content__section">
-
-                </section>
-
-            </div>
-
-        </div>
-
-        <!--bottom bar ; include controller / time bar / volume / play mode -->
-        <div class="app-window__bottombar">
-            <!--controller-->
-            <div class="bottombar-control__controller">
-                <a class="bottombar-control__button--previous"></a>
-                <a class="bottombar-control__button--pause"></a>
-                <a class="bottombar-control__button--play"></a>
-                <a class="bottombar-control__button--next"></a>
-            </div>
-            <!--time bar-->
-            <div class="bottombar-control__timebar">
-                <span class="timebar-time__current">00:00</span>
-                <div class="timebar-time__progressbar">
-                    <div class="progressbar-whole"></div>
-                    <div class="progressbar-current"></div>
-                </div>
-                <span class="timebar-time__whole">00:00</span>
-            </div>
-            <!--volume-->
-            <div class="bottombar-control__volume">
-                <div class="volume-icon">
-                    <img src="resources/images/loud.png" class="volume-icon__open">
-                </div>
-                <div class="volume-louder">
-                    <div class="volume-louder__whole"></div>
-                    <div class="volume-louder__current"></div>
-                </div>
-            </div>
-            <!--play mode-->
-            <div class="bottombar-control__playmode">
-                <img src="resources/images/repeat.png" class="playmode-icon__repeat">
-            </div>
+        <div class="titlebar-secondary">
+            <button class="titlebar-control__button ">1</button>
+            <button class="titlebar-control__button ">2</button>
+            <button class="titlebar-control__button ">3</button>
         </div>
     </div>
-    <audio></audio>
-    <script src="resources/js/taskbar.js"></script>
+
+    <div class="app-window__sidebar">
+        <div class="sidebar-content sidebar-content__discovery">
+            <div class="sidebar-content__title">
+                <img class="sidebar-content__icon">
+                <h2 class="sidebar-content__heading">发现音乐</h2>
+            </div>
+            <ul class="sidebar-content__list">
+                <li class="sidebar-content__item">最新歌曲</li>
+                <li class="sidebar-content__item">热门歌曲</li>
+                <li class="sidebar-content__item">歌曲推荐</li>
+            </ul>
+        </div>
+        <div class="sidebar-content sidebar-content__mymusic">
+        </div>
+
+        <!-- all contents should be there -->
+        <div class="app-content">
+
+            <!-- every pages should be wrapped in a section -->
+
+            <!-- home section -->
+            <section id="section-4" class="app-content__section"></section>
+
+        </div>
+
+    </div>
+
+    <!--bottom bar ; include controller / time bar / volume / play mode -->
+    <div class="app-window__bottombar">
+        <!--controller-->
+
+        <div class="bottombar-control__controller">
+            <button class="bottombar-control__button--previous">
+                <img src="resources/images/pre.png">
+            </button>
+            <button class="bottombar-control__button--pauseOrPlay">
+                <img src="resources/images/播放正方形.png">
+            </button>
+            <button class="bottombar-control__button--next">
+                <img src="resources/images/next.png">
+            </button>
+        </div>
+
+        <!--time bar-->
+
+        <div class="bottombar-control__timebar">
+            <span class="timebar-time__current">00:00</span>
+            <div class="timebar-time__progressbar">
+                <div class="progressbar-whole"></div>
+                <div class="progressbar-current"></div>
+            </div>
+            <span class="timebar-time__whole">00:00</span>
+        </div>
+
+        <!--volume-->
+
+        <div class="bottombar-control__volume">
+            <div class="volume-icon">
+                <img src="resources/images/loud.png" class="volume-icon__open">
+            </div>
+            <div class="volume-louder">
+                <div class="volume-louder__whole"></div>
+                <div class="volume-louder__current"></div>
+            </div>
+        </div>
+
+        <!--play mode-->
+
+        <div class="bottombar-control__playmode">
+            <img src="resources/images/repeat.png" class="playmode-icon__repeat">
+        </div>
+
+    </div>
+</div>
+<audio></audio>
+<script src="resources/js/taskbar.js"></script>
+<script src="resources/js/audio.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,9 @@
-$bottom-bar-height: 60px;
+$bottom-bar-height: 70px;
+img{
+  -webkit-user-drag: none;
+}
 .app-window__bottombar {
+
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -15,17 +19,23 @@ $bottom-bar-height: 60px;
     height: $bottom-bar-height*0.8;
     display: flex;
     justify-content: center;
-    a {
-      height: $bottom-bar-height*0.8;
-      width: $bottom-bar-height*0.8;
+    align-items: center;
+    button {
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      outline: none;
+      width: 45px;
+      height: 45px;
+      margin: 0 11px;
       img {
-        width: 100%;
-        height: 100%;
-        vertical-align: center;
+        vertical-align: middle;
+        cursor: pointer;
       }
     }
-    .bottombar-control__button--pause {
-      display: none;
+    .bottombar-control__button--pauseOrPlay{
+      box-shadow:  0 12px 300px 10px #a9b2fd;
+      border-radius: 50%;
     }
   }
   //timeProgressBar
@@ -46,19 +56,21 @@ $bottom-bar-height: 60px;
       width: 80%;
       display: flex;
       vertical-align: central;
-      height: $bottom-bar-height*0.1;
+      height: ($bottom-bar-height)*6/70;
+      cursor: pointer;
       .progressbar-current {
         background: -webkit-gradient(linear, left top, right top, from(rgb(169, 178, 253)), to(rgb(186, 216, 250)));
-        width: 100%;
-        border-radius: $bottom-bar-height*0.05;
+        //width: 100%;
+        border-radius: ($bottom-bar-height)*3/70;
       }
       .progressbar-whole {
-        height: $bottom-bar-height*0.1;
-        border-radius: $bottom-bar-height*0.05;
-        background-color: rgb(226, 226, 226);
+        height: ($bottom-bar-height)*6/70;
+        border-radius: ($bottom-bar-height)*3/70;
+        background-color: #F0F0F0;
         position: absolute;
         z-index: -1;
         width: 48vw;
+
       }
     }
   }
@@ -69,44 +81,46 @@ $bottom-bar-height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    .volume-icon{
+    .volume-icon {
       width: 20%;
-      img{
+      img {
         width: $bottom-bar-height*0.2;
         height: $bottom-bar-height*0.2;
         vertical-align: center;
       }
     }
-    .volume-louder{
+    .volume-louder {
       width: 80%;
       display: flex;
       vertical-align: central;
-      height: $bottom-bar-height*0.1;
-      .volume-louder__current{
+      height: ($bottom-bar-height)*6/70;
+      cursor: pointer;
+      .volume-louder__current {
         background: -webkit-gradient(linear, left top, right top, from(rgb(169, 178, 253)), to(rgb(186, 216, 250)));
-        width: 100%;
-        border-radius: $bottom-bar-height*0.05;
+        //width: 100%;
+        border-radius: ($bottom-bar-height)*3/70;
       }
-      .volume-louder__whole{
-        height: $bottom-bar-height*0.1;
-        border-radius: $bottom-bar-height*0.05;
-        background-color: rgb(226, 226, 226);
+      .volume-louder__whole {
+        height: ($bottom-bar-height)*6/70;
+        border-radius: ($bottom-bar-height)*3/70;
+        background-color: #F0F0F0;
         position: absolute;
         z-index: -1;
         width: 12.8vw;
       }
     }
   }
-  .bottombar-control__playmode{
+  .bottombar-control__playmode {
     width: 8%;
     height: $bottom-bar-height*0.8;
     display: flex;
     align-items: center;
     justify-content: center;
-    img{
+    img {
       width: $bottom-bar-height*0.2;
       height: $bottom-bar-height*0.2;
       vertical-align: center;
+      cursor: pointer;
     }
   }
 }
