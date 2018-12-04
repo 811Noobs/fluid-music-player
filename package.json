@@ -1,7 +1,7 @@
 {
-  "name": "hzytql-music-player",
-  "version": "1.0.0",
-  "description": "Week 4 Task",
+  "name": "fluid-music-player",
+  "version": "0.1.0",
+  "description": "Unique Studio's Weekly Task 5",
   "main": "main.js",
   "dependencies": {
     "electron": "^3.0.10",
@@ -16,9 +16,11 @@
     "url": "git@gz.maniacata.com:hzytql.git"
   },
   "keywords": [
+    "fluid",
     "music",
-    "player"
+    "player",
+    "unique-studio"
   ],
-  "author": "811 front-end noobs",
+  "author": "811Noobs",
   "license": "MIT"
 }
