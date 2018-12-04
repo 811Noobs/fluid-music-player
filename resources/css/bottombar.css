@@ -9,9 +9,13 @@ img {
   display: flex;
   align-items: center;
   -webkit-user-select: none;
+<<<<<<< HEAD
   background-color: white;
   box-shadow: #e7e6ff20 0px 0px 8px 8px;
   z-index: 100; }
+=======
+  background-color: white; }
+>>>>>>> 3ba20c32554bea0298183efc3156665bfc9db114
   .app-window__bottombar .bottombar-control__controller {
     margin: 0 auto;
     width: 16%;
@@ -31,6 +35,10 @@ img {
         vertical-align: middle;
         cursor: pointer; }
     .app-window__bottombar .bottombar-control__controller .bottombar-control__button--pauseOrPlay {
+<<<<<<< HEAD
+=======
+      box-shadow: 0 12px 300px 10px #a9b2fd;
+>>>>>>> 3ba20c32554bea0298183efc3156665bfc9db114
       border-radius: 50%; }
   .app-window__bottombar .bottombar-control__timebar {
     width: 60%;
