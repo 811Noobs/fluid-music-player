@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Fluid Music Player</title>
     <link href="resources/css/style.css" rel="stylesheet">
+    <link href="resources/css/content.css" rel="stylesheet">
 </head>
 
 <body>
@@ -59,8 +60,83 @@
 
             <div class="app-content__section">
                 <!-- home section -->
-                <section id="section-1" class="section-wrapper">
-
+                <section id="section-1" class="section_scroll">
+                    <div class="more_ul_container">
+                        <ul class="more_ul" id="more_ul">
+                            <li id="more_container1" data-num="1" class="more_container more_container_noactive" style="left:0;" data-dir="left" onclick="moreOnClick(this);"><img src="resources/images/scroll/1.png"/></li>
+                            <li id="more_container2" data-num="2" class="more_container more_container_active" style="left:20vw;z-index:50;" data-dir="none" onclick="moreOnClick(this);"><img src="resources/images/scroll/2.png"/></li>
+                            <li id="more_container3" data-num="3" class="more_container more_container_noactive" style="left: 40vw;" data-dir="right" onclick="moreOnClick(this);"><img src="resources/images/scroll/3.png"/></li>
+                        </ul>
+                    </div>
+                    <div class="more_nav_ul_container">
+                        <ul>
+                            <li data-num="1" id="more_nav_ribbon1" class="more_nav_noactive more_nav_item" onclick="ribbonOnClick(this);"></li>
+                            <li data-num="2" id="more_nav_ribbon2" class="more_nav_active more_nav_item" onclick="ribbonOnClick(this);"></li>
+                            <li data-num="3" id="more_nav_ribbon3" class="more_nav_noactive more_nav_item" onclick="ribbonOnClick(this);"></li>
+                        </ul>
+                    </div>
+                </section>
+                <section id="section-2" class="section_songs">
+                    <h4>最新歌曲</h4>
+                    <div class="songs_container">
+                        <div class="songs_item">
+                            <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                            <div class="songs_item_author_description">
+                                <h4>Youth</h4>
+                                <h5>Troye Sivan</h5>
+                            </div>
+                        </div>
+                        <div class="songs_item">
+                            <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                            <div class="songs_item_author_description">
+                                <h4>Youth</h4>
+                                <h5>Troye Sivan</h5>
+                            </div>
+                        </div>
+                        <div class="songs_item">
+                            <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                            <div class="songs_item_author_description">
+                                <h4>Youth</h4>
+                                <h5>Troye Sivan</h5>
+                            </div>
+                        </div>
+                        <div class="songs_item">
+                            <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                            <div class="songs_item_author_description">
+                                <h4>Youth</h4>
+                                <h5>Troye Sivan</h5>
+                            </div>
+                        </div>
+                        <div class="songs_item">
+                            <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                            <div class="songs_item_author_description">
+                                <h4>Youth</h4>
+                                <h5>Troye Sivan</h5>
+                            </div>
+                        </div>
+                        <div class="songs_item">
+                            <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                            <div class="songs_item_author_description">
+                                <h4>Youth</h4>
+                                <h5>Troye Sivan</h5>
+                            </div>
+                        </div>
+                        <div class="songs_item">
+                            <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                            <div class="songs_item_author_description">
+                                <h4>Youth</h4>
+                                <h5>Troye Sivan</h5>
+                            </div>
+                        </div>
+                        <div class="songs_item">
+                            <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                            <div class="songs_item_author_description">
+                                <h4>Youth</h4>
+                                <h5>Troye Sivan</h5>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
 
         </div>
@@ -122,6 +198,7 @@
     <script src="resources/js/taskbar.js"></script>
     <script src="resources/js/appContent.js"></script>
     <script src="resources/js/audio.js"></script>
+    <script src="resources/js/scroll.js"></script>
 </body>
 
 </html>

@@ -196,10 +196,15 @@ img {
   font-family: "Huawen Hupo";
   src: url("../fonts/huawen_hupo.woff2"); }
 
+@font-face {
+  font-family: "PingFang";
+  font-weight: 400;
+  src: url("../fonts/PingFang.woff2"); }
+
 body {
   background: #FFF;
   margin: 0;
-  font-family: "Microsoft Yahei", "ping fang"; }
+  font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif; }
 
 .app-window {
   position: absolute;
