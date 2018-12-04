@@ -1,91 +1,139 @@
+img {
+    -webkit-user-drag: none;
+}
+
 .app-window__bottombar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  -webkit-user-select: none;
-  background-color: white;
-  box-shadow: #f6f7fd 0px 0px 16px 16px; }
-  .app-window__bottombar .bottombar-control__controller {
-    margin: 0 auto;
-    width: 16%;
-    height: 48px;
-    display: flex;
-    justify-content: center; }
-    .app-window__bottombar .bottombar-control__controller a {
-      height: 48px;
-      width: 48px; }
-      .app-window__bottombar .bottombar-control__controller a img {
-        width: 100%;
-        height: 100%;
-        vertical-align: center; }
-    .app-window__bottombar .bottombar-control__controller .bottombar-control__button--pause {
-      display: none; }
-  .app-window__bottombar .bottombar-control__timebar {
-    width: 60%;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .app-window__bottombar .bottombar-control__timebar span {
-      display: inline-block;
-      width: 10%;
-      font-size: 12px;
-      padding: auto 3px;
-      text-align: center; }
-    .app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar {
-      width: 80%;
-      display: flex;
-      vertical-align: central;
-      height: 6px; }
-      .app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-current {
-        background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
-        width: 100%;
-        border-radius: 3px; }
-      .app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-whole {
-        height: 6px;
-        border-radius: 3px;
-        background-color: #e2e2e2;
-        position: absolute;
-        z-index: -1;
-        width: 48vw; }
-  .app-window__bottombar .bottombar-control__volume {
-    width: 16%;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .app-window__bottombar .bottombar-control__volume .volume-icon {
-      width: 20%; }
-      .app-window__bottombar .bottombar-control__volume .volume-icon img {
-        width: 12px;
-        height: 12px;
-        vertical-align: center; }
-    .app-window__bottombar .bottombar-control__volume .volume-louder {
-      width: 80%;
-      display: flex;
-      vertical-align: central;
-      height: 6px; }
-      .app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__current {
-        background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
-        width: 100%;
-        border-radius: 3px; }
-      .app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__whole {
-        height: 6px;
-        border-radius: 3px;
-        background-color: #e2e2e2;
-        position: absolute;
-        z-index: -1;
-        width: 12.8vw; }
-  .app-window__bottombar .bottombar-control__playmode {
-    width: 8%;
-    height: 48px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
     display: flex;
     align-items: center;
-    justify-content: center; }
-    .app-window__bottombar .bottombar-control__playmode img {
-      width: 12px;
-      height: 12px;
-      vertical-align: center; }
+    -webkit-user-select: none;
+    background-color: white;
+    box-shadow: #f6f7fd 0px 0px 16px 16px;
+}
+
+.app-window__bottombar .bottombar-control__controller {
+    margin: 0 auto;
+    width: 16%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-window__bottombar .bottombar-control__controller button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    outline: none;
+    width: 45px;
+    height: 45px;
+    margin: 0 11px;
+}
+
+.app-window__bottombar .bottombar-control__controller button img {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.app-window__bottombar .bottombar-control__controller .bottombar-control__button--pauseOrPlay {
+    box-shadow: 0 12px 300px 10px #a9b2fd;
+    border-radius: 50%;
+}
+
+.app-window__bottombar .bottombar-control__timebar {
+    width: 60%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-window__bottombar .bottombar-control__timebar span {
+    display: inline-block;
+    width: 10%;
+    font-size: 14px;
+    padding: auto 3.5px;
+    text-align: center;
+}
+
+.app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar {
+    width: 80%;
+    display: flex;
+    vertical-align: central;
+    height: 6px;
+    cursor: pointer;
+}
+
+.app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-current {
+    background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
+    border-radius: 3px;
+}
+
+.app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-whole {
+    height: 6px;
+    border-radius: 3px;
+    background-color: #F0F0F0;
+    position: absolute;
+    z-index: -1;
+    width: 48vw;
+}
+
+.app-window__bottombar .bottombar-control__volume {
+    width: 16%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-window__bottombar .bottombar-control__volume .volume-icon {
+    width: 20%;
+}
+
+.app-window__bottombar .bottombar-control__volume .volume-icon img {
+    width: 14px;
+    height: 14px;
+    vertical-align: center;
+}
+
+.app-window__bottombar .bottombar-control__volume .volume-louder {
+    width: 80%;
+    display: flex;
+    vertical-align: central;
+    height: 6px;
+    cursor: pointer;
+}
+
+.app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__current {
+    background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
+    border-radius: 3px;
+}
+
+.app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__whole {
+    height: 6px;
+    border-radius: 3px;
+    background-color: #F0F0F0;
+    position: absolute;
+    z-index: -1;
+    width: 12.8vw;
+}
+
+.app-window__bottombar .bottombar-control__playmode {
+    width: 8%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-window__bottombar .bottombar-control__playmode img {
+    width: 14px;
+    height: 14px;
+    vertical-align: center;
+    cursor: pointer;
+}
+
+/*# sourceMappingURL=bottombar.css.map */

@@ -69,24 +69,28 @@ class SectionWrap {
 const sidebar = new Sidebar(document.querySelector(".app-content__sidebar"));
 const sectionWrap = new SectionWrap(document.querySelector(".app-content__section"));
 
-document.querySelector("body").addEventListener("mousemove", (event) => {
+document.addEventListener("mousemove", (event) => {
     if (!sidebar.resizable) { return; }
     sidebar.widthVarity = event.clientX - sidebar.dragBeginX;
-    console.log("!wi");
+    console.log("!wi" + event.clientX);
     if (sidebar.dragBeginWidth + sidebar.widthVarity > document.body.offsetWidth / 2) {
         sidebar.setWidth(document.body.offsetWidth / 2);
         sectionWrap.setWidth(document.body.offsetWidth - sidebar.getWidth());
-        sidebar.resizable = false;
+        //sidebar.resizable = false;
         return;
     }
     if (sidebar.dragBeginWidth + sidebar.widthVarity < sidebar.originWidth) {
         sidebar.setWidth(sidebar.originWidth);
         sectionWrap.setWidth(document.body.offsetWidth - sidebar.getWidth());
-        sidebar.resizable = false;
+        //sidebar.resizable = false;
         return;
     }
     sidebar.setWidth(sidebar.dragBeginWidth + sidebar.widthVarity);
     sectionWrap.setWidth(document.body.offsetWidth - sidebar.getWidth());
+});
+document.addEventListener("mouseup", (event) => {
+    if (!sidebar.resizable) { return; }
+    sidebar.resizable = false;
 });
 
 window.onresize = () => {

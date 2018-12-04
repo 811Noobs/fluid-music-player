@@ -28,9 +28,6 @@
                 <button class="titlebar-control__button ">3</button>
             </div> -->
         </div>
-
-
-
         <!-- all contents should be there -->
         <div class="app-content">
 
@@ -64,8 +61,6 @@
                 <!-- home section -->
                 <section id="section-1" class="section-wrapper">
 
-                </section>
-
             </div>
 
         </div>
@@ -73,13 +68,21 @@
         <!--bottom bar ; include controller / time bar / volume / play mode -->
         <div class="app-window__bottombar">
             <!--controller-->
+
             <div class="bottombar-control__controller">
-                <a class="bottombar-control__button--previous"></a>
-                <a class="bottombar-control__button--pause"></a>
-                <a class="bottombar-control__button--play"></a>
-                <a class="bottombar-control__button--next"></a>
+                <button class="bottombar-control__button--previous">
+                    <img src="resources/images/pre.png">
+                </button>
+                <button class="bottombar-control__button--pauseOrPlay">
+                    <img src="resources/images/播放正方形.png">
+                </button>
+                <button class="bottombar-control__button--next">
+                    <img src="resources/images/next.png">
+                </button>
             </div>
+
             <!--time bar-->
+
             <div class="bottombar-control__timebar">
                 <span class="timebar-time__current">00:00</span>
                 <div class="timebar-time__progressbar">
@@ -88,7 +91,9 @@
                 </div>
                 <span class="timebar-time__whole">00:00</span>
             </div>
+
             <!--volume-->
+
             <div class="bottombar-control__volume">
                 <div class="volume-icon">
                     <img src="resources/images/loud.png" class="volume-icon__open">
@@ -98,15 +103,25 @@
                     <div class="volume-louder__current"></div>
                 </div>
             </div>
+
             <!--play mode-->
+
             <div class="bottombar-control__playmode">
                 <img src="resources/images/repeat.png" class="playmode-icon__repeat">
             </div>
+
         </div>
+
     </div>
+
+
+
+
+
     <audio></audio>
     <script src="resources/js/taskbar.js"></script>
     <script src="resources/js/appContent.js"></script>
+    <script src="resources/js/audio.js"></script>
 </body>
 
 </html>
