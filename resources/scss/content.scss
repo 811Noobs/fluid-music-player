@@ -5,7 +5,7 @@
 }
 
 .more_ul_container {
-  padding:0 24px;
+  padding: 0 24px;
   position: relative;
   height: 18vw;
   width: 100%;
@@ -38,7 +38,7 @@
 
 .more_ul {
   padding: 0;
-  margin:0 auto;
+  margin: 0 auto;
   position: relative;
   list-style-type: none;
   display: block;
@@ -51,6 +51,7 @@
     display: inline-block;
     width: 40%;
     margin: 0;
+
     > img {
       width: 100%;
       height: auto;
@@ -62,9 +63,11 @@
 .more_nav_ul_container {
   width: 80vw;
   text-align: center;
+
   > ul {
     list-style-type: none;
     padding: 0;
+
     > li {
       display: inline-block;
       width: 50px;
@@ -103,6 +106,7 @@
       grid-template-columns: calc(57px + 5%) calc(95% - 57px - 18px);
       padding: 8px;
       cursor: pointer;
+      transition: all .6s cubic-bezier(.33, .63, .65, .99);
 
       h4 {
         margin: 6px 0 0 0;
@@ -117,5 +121,17 @@
         padding: 5%;
       }
     }
+  }
+}
+
+.songs_item:hover {
+  background: linear-gradient(to right top, #b0c1fc, #bbd9fa);
+
+  h4 {
+    color: white;
+  }
+
+  h5 {
+    color: white !important;
   }
 }

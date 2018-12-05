@@ -83,7 +83,8 @@
       display: grid;
       grid-template-columns: calc(57px + 5%) calc(95% - 57px - 18px);
       padding: 8px;
-      cursor: pointer; }
+      cursor: pointer;
+      transition: all 0.6s cubic-bezier(0.33, 0.63, 0.65, 0.99); }
       .section_songs .songs_container .songs_item h4 {
         margin: 6px 0 0 0; }
       .section_songs .songs_container .songs_item h5 {
@@ -91,3 +92,10 @@
         color: #b6b6b6; }
       .section_songs .songs_container .songs_item .songs_item_author_img {
         padding: 5%; }
+
+.songs_item:hover {
+  background: linear-gradient(to right top, #b0c1fc, #bbd9fa); }
+  .songs_item:hover h4 {
+    color: white; }
+  .songs_item:hover h5 {
+    color: white !important; }
