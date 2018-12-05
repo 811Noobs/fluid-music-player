@@ -90,21 +90,24 @@ class SongList extends Database {
     }
 
     getSongList() {
-        return super.read();
+        super.read();
+        super.save();
     }
 
     /**
      * @param arr {array} WHERE
      */
     addSongList(arr) {
-        return super.insert(arr);
+        super.insert(arr);
+        super.save();
     }
 
     /**
      * @param par {array} WHERE
      */
     deleteSongList(par) {
-        return super.delete(par);
+        super.delete(par);
+        super.save();
     }
 
     /**
@@ -113,7 +116,8 @@ class SongList extends Database {
      * @param v {string}
      */
     updateSongList(par,k,v) {
-        return super.update(par,k,v);
+        super.update(par,k,v);
+        super.save();
     }
 }
 
