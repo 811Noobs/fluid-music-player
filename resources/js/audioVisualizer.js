@@ -104,7 +104,7 @@ window.onload = function () {
     var oW = canvas.width;
     var oH = canvas.height;
     // 音频图的条数
-    var count = 20;
+    var count = 18;
     // 缓冲区:进行数据的缓冲处理，转换成二进制数据
     var voiceHeight = new Uint8Array(analyser.frequencyBinCount);
     // console.log(voiceHeight);
@@ -128,7 +128,7 @@ window.onload = function () {
             //ctx.fillRect(oW / 2 - (i * 10), oH / 2, 7, -audioHeight);
             ctx.beginPath();
             ctx.arc(oW / 2, oH / 2, audioHeight, 0, 2 * Math.PI);
-            ctx.fillStyle = "rgba(192, 80, 77, 0.7)";
+            ctx.fillStyle = "rgba(192, 80, 77, 0.2)";
             ctx.closePath();
             ctx.fill();
         }
@@ -151,18 +151,66 @@ window.onload = function () {
 
             //ctx.fillRect(oW / 2 + (i * 10), oH / 2, 7, -audioHeight);
             //ctx.fillRect(oW / 2 - (i * 10), oH / 2, 7, -audioHeight);
-            let x = oW / 2 + Math.sin((2 * Math.PI / (count-5) * i)) * audioHeight;
-            let y = oH / 2 - Math.cos(2 * Math.PI / (count-5) * i) * audioHeight;
+            let x = oW / 2 + Math.sin(2 * Math.PI / (count * 0.8) * i) * (audioHeight + 25) / 1;
+            let y = oH / 2 - Math.cos(2 * Math.PI / (count * 0.8) * i) * (audioHeight + 25) / 1;
             //ctx.moveTo(oW / 2 + Math.sin(2 * Math.PI / step * i), oH / 2 - Math.cos(2 * Math.PI./ step * i))
             ctx.beginPath();
             ctx.arc(x, y, 5, 0, 2 * Math.PI);
-            ctx.fillStyle = "rgba(192, 80, 77, 0.7)";
+            ctx.fillStyle = "rgba(192, 80, 77, 0.6)";
             ctx.closePath();
             ctx.fill();
         }
         window.requestAnimationFrame(arguments.callee);
     }
-    drawRound();
+    function drawCurve() {
+        // 将当前的频率数据复制到传入的无符号字节数组中，做到实时连接
+        analyser.getByteFrequencyData(voiceHeight);
+        if (voiceHeight[0] > 0 && a == 1) { console.log(voiceHeight); a++ };
+        // 自定义获取数组里边数据的频步
+        var step = Math.round(voiceHeight.length / count);
+        ctx.clearRect(0, 0, oW, oH);
+        for (var i = 0; i < count; i ++) {
+            //if (voiceHeight[step * i] < 20) { continue };
+            //if (voiceHeight[step * i]>140){continue};
+
+
+            var audioHeight = voiceHeight[step * i / 2 + 0];
+            //console.log(audioHeight);
+            let x1 = oW / 2 + Math.sin(2 * Math.PI * i / (count * 1)) * (audioHeight + 25) / 1;
+            let y1 = oH / 2 - Math.cos(2 * Math.PI * i / (count * 1)) * (audioHeight + 25) / 1;
+            let x2 = oW / 2 + Math.sin(2 * Math.PI * (i + 1) / (count * 1)) * (audioHeight + 25) / 1;
+            let y2 = oH / 2 - Math.cos(2 * Math.PI * (i + 1) / (count * 1)) * (audioHeight + 25) / 1;
+            let x3 = oW / 2 + Math.sin(2 * Math.PI * (i + 2) / (count * 1)) * (audioHeight + 25) / 1;
+            let y3 = oH / 2 - Math.cos(2 * Math.PI * (i + 2) / (count * 1)) * (audioHeight + 25) / 1;
+            let xmid1 = (x1 + x2) / 2;
+            let ymid1 = (y1 + y2) / 2;
+            let xmid2 = (x2 + x3) / 2;
+            let ymid2 = (y2 + y3) / 2;
+
+            if (i == 0) {
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                // let x = oW / 2 + Math.sin(2 * Math.PI / (count * 0.8) * i) * (audioHeight + 25) / 1;
+                // let y = oH / 2 - Math.cos(2 * Math.PI / (count * 0.8) * i) * (audioHeight + 25) / 1;
+                // ctx.beginPath();
+                ctx.quadraticCurveTo(x2, y2, xmid2, ymid2)
+
+            }
+            if (i > 0 && i < count-1) {
+                //ctx.moveTo(xmid1, ymid1);
+                ctx.quadraticCurveTo(x2, y2, xmid2, ymid2);
+
+            }
+            if (i >= count-1) {
+                ctx.quadraticCurveTo(x2, y2, x3, y3)
+                ctx.closePath();
+                ctx.fillStyle = "rgba(192, 80, 77, 0.2)";
+                ctx.fill();
+            }
+        }
+        window.requestAnimationFrame(arguments.callee);
+    }
+    drawCurve();
 
 
     /*
@@ -173,3 +221,5 @@ window.onload = function () {
               ffiSize属性值是从32位到32768范围内的2的非零幂,默认值是2048
     */
 }
+
+var a = 1;
