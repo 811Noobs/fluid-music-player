@@ -5,6 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "electron": "^3.0.10",
+    "node-id3": "^0.1.7",
     "node-sass": "^4.10.0"
   },
   "devDependencies": {},

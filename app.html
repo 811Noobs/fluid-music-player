@@ -59,12 +59,8 @@
 
             <div class="app-content__section">
                 <!-- home section -->
-                <section id="section-1" class="section-wrapper">
-                </section>
             </div>
-
         </div>
-
         <!--bottom bar ; include controller / time bar / volume / play mode -->
         <div class="app-window__bottombar">
             <!--controller-->
@@ -74,7 +70,7 @@
                     <img src="resources/images/pre.png">
                 </button>
                 <button class="bottombar-control__button--pauseOrPlay">
-                    <img src="resources/images/播放正方形.png">
+                    <img src="resources/images/play.png">
                 </button>
                 <button class="bottombar-control__button--next">
                     <img src="resources/images/next.png">
@@ -113,9 +109,39 @@
         </div>
 
     </div>
-
-
-
+    <section id="audio-play__section">
+        <div class="audio-play__section--left">
+            <div class="audio-play__left--img">
+                    <img src="resources/images/audioImg-Temp.jpg">
+            </div>
+            <div class="audio-play__left--button">
+                <button class="button-favorite">
+                    <img src="resources/images/favorate.png">
+                </button>
+                <button class="button-download">
+                    <img src="resources/images/download.png">
+                </button>
+                <button class="button-share">
+                    <img src="resources/images/share.png">
+                </button>
+            </div>
+        </div>
+        <div class="audio-play__section--right">
+            <div class="audio-play__right--information">
+                <h1 class="information-name">aaa</h1>
+                <div>
+                    <label for="information-album">专辑</label>
+                    <span id="information-album">aaa</span>
+                    <label for="information-singer">歌手</label>
+                    <span id="information-singer">abc</span>
+                </div>
+            </div>
+            <div class="audio-play__right--lrc">
+                <ul id="lyric-box">
+                </ul>
+            </div>
+        </div>
+    </section>
 
 
     <audio></audio>

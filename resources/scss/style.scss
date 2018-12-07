@@ -2,6 +2,7 @@
 @import "bottombar.scss";
 @import "sidebar.scss";
 @import "hue.scss";
+@import "lrcSection.scss";
 @font-face {
     font-family: "Huawen Hupo";
     src: url("../fonts/huawen_hupo.woff2");
@@ -17,4 +18,5 @@ body {
     position: absolute;
     width: 100vw;
     height: 100vh;
+    z-index: 1;
 }
