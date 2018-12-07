@@ -210,7 +210,7 @@ window.onload = function () {
         }
         window.requestAnimationFrame(arguments.callee);
     }
-    drawCurve();
+    drawRound();
 
 
     /*
