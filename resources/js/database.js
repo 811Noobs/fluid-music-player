@@ -121,5 +121,4 @@ class SongList extends Database {
     }
 }
 
-let songList = new SongList();
-let db = new Database();
+module.exports =  new Database();

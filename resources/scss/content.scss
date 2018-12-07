@@ -106,6 +106,7 @@
       grid-template-columns: calc(57px + 5%) calc(95% - 57px - 18px);
       padding: 8px;
       cursor: pointer;
+      background: white;
       transition: all .6s cubic-bezier(.33, .63, .65, .99);
 
       h4 {
@@ -125,7 +126,7 @@
 }
 
 .songs_item:hover {
-  background: linear-gradient(to right top, #b0c1fc, #bbd9fa);
+  background: linear-gradient(to right top, #b0c1fc, #bbd9fa) !important;
 
   h4 {
     color: white;
