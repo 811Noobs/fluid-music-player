@@ -238,7 +238,8 @@ img {
         margin: 11px;
         width: 88px;
         height: 88px;
-        background: #eee; }
+        background: #eee;
+        box-shadow: #e7e6ff30 0px 4px 8px 4px; }
     .app-content__sidebar .sidebar-info .sidebar-info__right {
       flex: 1;
       padding-top: 25px;
@@ -277,13 +278,20 @@ img {
 
 #audio-play__section {
   background-color: #FFFFFF;
-  position: absolute;
-  z-index: 9999;
+  position: fixed;
+  z-index: 60;
   height: calc(100% - 130px);
-  margin-top: 60px;
   overflow: hidden;
-  width: 100%;
+  width: 0;
+  height: 0;
+  bottom: 70px;
+  opacity: 0;
+  transition: all .5s ease-in-out;
   display: flex; }
+  #audio-play__section.active {
+    height: calc(100% - 130px);
+    width: 100%;
+    opacity: 1; }
   #audio-play__section .audio-play__section--left {
     width: 50%;
     max-width: 80vh;
@@ -382,6 +390,13 @@ img {
           font-weight: 600; }
     #audio-play__section .audio-play__section--right .audio-play__right--lrc::-webkit-scrollbar {
       display: none; }
+
+#canvas {
+  position: absolute;
+  z-index: -5;
+  height: 50vh;
+  /* margin: 20vh auto 15vh auto; */
+  width: auto; }
 
 @font-face {
   font-family: "PingFang";

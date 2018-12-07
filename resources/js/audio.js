@@ -285,9 +285,12 @@ function transTimeToMin(value) {
 
 /*****************歌词解析**********************************/
 var title = document.querySelector(".information-name");
+var titleSidebar = document.querySelector(".sidebar-info__title");
 var singer = document.querySelector("#information-singer");
+var singerSidebar = document.querySelector(".sidebar-info__artist");
 var album = document.querySelector("#information-album");
 var musicImg = document.querySelector(".audio-play__left--img img");
+var musicImgSidebar = document.querySelector(".sidebar-info__cover");
 var intervalTime = 0;
 var lastAudioTime = 0;
 
@@ -314,9 +317,12 @@ function setInformation() {
     NodeID3.read(music[`${controller.musicName}`], (err, tags) => {
         console.log(tags);
         title.innerText = tags.title;
+        titleSidebar.innerText = tags.title;
         singer.innerText = tags.artist;
+        singerSidebar.innerText = tags.artist;
         album.innerText = tags.album;
         musicImg.src = `data:;base64,${tags.image.imageBuffer.toString('base64')}`;
+        musicImgSidebar.src = `data:;base64,${tags.image.imageBuffer.toString('base64')}`;
     });
     lyricArray = [];
     let timeReg = /\[\d{2}:\d{2}.\d{2,}]/g;

@@ -28,17 +28,18 @@ function createWindow() {
         show: false,
     });
     miniwin = new BrowserWindow({
-        width: 1200,
-        height: 744,
-        frame: false,
-        show: false,
+        width: 200,
+        height: 50,
+        frame: true,
+        show: true,
     });
     loading.loadFile('loading.html');
     win.loadFile('app.html');
+    miniwin.loadFile('miniwin.html');
     loading.once('ready-to-show', () => {
         let db;
         loading.show();
-        
+
         win.once('ready-to-show', () => {
             // let time = new Date();
             // // while (new Date() - time < 3000) //阻塞，延时
@@ -47,6 +48,10 @@ function createWindow() {
             db.read();
             loading.close();
             loading = null;
+            win.show();
+        });
+        miniwin.once('ready-to-show', () => {
+
             win.show();
         })
     });

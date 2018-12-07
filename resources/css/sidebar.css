@@ -48,7 +48,8 @@
         margin: 11px;
         width: 88px;
         height: 88px;
-        background: #eee; }
+        background: #eee;
+        box-shadow: #e7e6ff30 0px 4px 8px 4px; }
     .app-content__sidebar .sidebar-info .sidebar-info__right {
       flex: 1;
       padding-top: 25px;
