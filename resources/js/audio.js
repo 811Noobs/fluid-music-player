@@ -12,6 +12,8 @@ let currentTimeProgress = document.querySelector(".progressbar-current");//当�
 let wholeTimeProgress = document.querySelector(".timebar-time__progressbar");//进度条框
 let volumebar = document.querySelector(".volume-louder");
 let currentVolume = document.querySelector(".volume-louder__current");
+let lyricBox = document.querySelector("#lyric-box");
+let lyric, lyricArray;
 let [music, lrc] = getMusicAndLrc();
 
 class controllerClass {
@@ -30,6 +32,9 @@ class controllerClass {
             }
         }
         audio.src = music[`${controller.musicName}`];
+        intervalTime = 0;
+        lastAudioTime = 0;
+        analyzeLrc(lrc[`${controller.musicName}`]);
         audio.load();
         currentTimeSpan.innerText = "00:00";
         currentTimeProgress.style.width = "0px";
@@ -48,6 +53,9 @@ class controllerClass {
             }
         }
         audio.src = music[`${controller.musicName}`];
+        intervalTime = 0;
+        lastAudioTime = 0;
+        analyzeLrc(lrc[`${controller.musicName}`]);
         audio.load();
         currentTimeSpan.innerText = "00:00";
         currentTimeProgress.style.width = "0px";
@@ -70,18 +78,14 @@ class controllerClass {
 }
 
 /*TODO：初始化*/
-let controller = new controllerClass(0.5, "轮回之境");//传入音量，乐曲名,以后将由储存的配置表传入
+let controller = new controllerClass(0.5, "故梦");//传入音量，乐曲名,以后将由储存的配置表传入
 audio.src = music[`${controller.musicName}`];
+analyzeLrc(lrc[`${controller.musicName}`]);
 audio.load();
 controller.setVolume(controller.volume);
 audio.addEventListener("canplay", () => {
     wholeTimeSpan.innerText = transTimeToMin(audio.duration);
 });
-
-
-
-
-
 
 
 /*几个点击时改变图标的监听*/
@@ -99,11 +103,11 @@ document.addEventListener("mouseup", () => {
 /*暂停/播放*/
 playOrPauseBtn.addEventListener("click", () => {
     if (play) {
-        playOrPauseBtn.src = "resources/images/播放正方形.png";
+        playOrPauseBtn.src = "resources/images/play.png";
         play = false;
         audio.pause();
     } else {
-        playOrPauseBtn.src = "resources/images/暂停正方形.png";
+        playOrPauseBtn.src = "resources/images/pause.png";
         play = true;
         audio.play();
     }
@@ -134,12 +138,14 @@ audio.addEventListener("timeupdate", () => {
     let percent = time / wholeTime;
     currentTimeSpan.innerText = transTimeToMin(time);
     controller.setProgressWidth(percent);
+    scrollLyric();
 });
 wholeTimeProgress.addEventListener("mousedown", mouseDownFunctionForTime);
 wholeTimeProgress.addEventListener("mousemove", mouseMoveFunctionForTime);
 document.addEventListener("mousemove", mouseOutFunctionForTime);
 document.addEventListener("mouseup", mouseUpFunctionForTime);
 wholeTimeProgress.addEventListener("mouseup", mouseUpFunctionForTime);
+
 function mouseDownFunctionForTime(e) {
     mouseIsDownForTime = true;
     downPosition = e.clientX;
@@ -148,6 +154,7 @@ function mouseDownFunctionForTime(e) {
     controller.setProgressWidth(percent);
     currentTimeSpan.innerText = transTimeToMin(audio.duration * percent);
 }
+
 function mouseMoveFunctionForTime(e) {
     if (!mouseIsDownForTime)
         return;
@@ -157,6 +164,7 @@ function mouseMoveFunctionForTime(e) {
     controller.setProgressWidth(percent);
     currentTimeSpan.innerText = transTimeToMin(audio.duration * percent);
 }
+
 function mouseOutFunctionForTime(e) {
     if (!mouseIsDownForTime)
         return;
@@ -177,6 +185,7 @@ function mouseOutFunctionForTime(e) {
         currentTimeSpan.innerText = transTimeToMin(audio.duration * percent);
     }
 }
+
 function mouseUpFunctionForTime(e) {
     if (!mouseIsDownForTime)
         return;
@@ -188,11 +197,13 @@ function mouseUpFunctionForTime(e) {
     percent = 0;
     isout = 0;
 }
+
 volumebar.addEventListener("mousedown", mouseDownFunctionForVolume);
 volumebar.addEventListener("mousemove", mouseMoveFunctionForVolume);
 document.addEventListener("mousemove", mouseOutFunctionForVolume);
 document.addEventListener("mouseup", mouseUpFunctionForVolume);
 volumebar.addEventListener("mouseup", mouseUpFunctionForVolume);
+
 function mouseDownFunctionForVolume(e) {
     mouseIsDownForVolume = true;
     downPosition = e.clientX;
@@ -200,6 +211,7 @@ function mouseDownFunctionForVolume(e) {
     percent = distance / volumebar.offsetWidth;
     controller.setVolume(percent);
 }
+
 function mouseMoveFunctionForVolume(e) {
     if (!mouseIsDownForVolume)
         return;
@@ -208,6 +220,7 @@ function mouseMoveFunctionForVolume(e) {
     percent = distance / volumebar.offsetWidth;
     controller.setVolume(percent);
 }
+
 function mouseOutFunctionForVolume(e) {
     if (!mouseIsDownForVolume)
         return;
@@ -225,6 +238,7 @@ function mouseOutFunctionForVolume(e) {
         controller.setVolume(percent);
     }
 }
+
 function mouseUpFunctionForVolume(e) {
     if (!mouseIsDownForVolume)
         return;
@@ -235,11 +249,13 @@ function mouseUpFunctionForVolume(e) {
     percent = 0;
     isout = 0;
 }
+
 /******************************************************************/
 
 
+/*获取music函数*/
 
-/*获取music函数*//*TODO：必须改写*/
+/*TODO：必须改写*/
 function getMusicAndLrc() {
     let fs = require("fs");
     let music = {};
@@ -264,4 +280,90 @@ function transTimeToMin(value) {
     m = (m < 10) ? `0${m}` : `${m}`;
     s = (s < 10) ? `0${s}` : `${s}`;
     return m + ":" + s;
+}
+
+
+/*****************歌词解析**********************************/
+var title = document.querySelector(".information-name");
+var singer = document.querySelector("#information-singer");
+var album = document.querySelector("#information-album");
+var musicImg = document.querySelector(".audio-play__left--img img");
+var intervalTime = 0;
+var lastAudioTime = 0;
+
+function analyzeLrc(path) {
+    lyricBox.innerHTML = "";
+    let fs = require("fs");
+    fs.open(path, "r", (err, fd) => {
+        if (err) {
+            console.log(err);
+        } else {
+            fs.readFile(path, (err, data) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    lyric = data.toLocaleString().split('\n');
+                    setInformation();
+                }
+            })
+        }
+    })
+}
+
+function setInformation() {
+    let NodeID3 = require('node-id3')
+    NodeID3.read(music[`${controller.musicName}`], (err, tags) => {
+        console.log(tags);
+        title.innerText = tags.title;
+        singer.innerText = tags.artist;
+        album.innerText = tags.album;
+        musicImg.src = `data:;base64,${tags.image.imageBuffer.toString('base64')}`;
+    });
+    lyricArray = [];
+    let timeReg = /\[\d{2}:\d{2}.\d{2,}]/g;
+    while (!timeReg.test(lyric[0])) {
+        lyric = lyric.slice(1);
+    }
+    if (lyric[lyric.length - 1] === "") {
+        lyric.pop();
+    }
+    for (let i = 0; i < lyric.length; i++) {
+        let time = lyric[i].match(timeReg);
+        let line = lyric[i].replace(timeReg, "");
+        for (let j = 0; j < time.length; j++) {
+            let temp = `${time[j]}`;
+            temp = temp.slice(1, -1).split(":");
+            temp = parseInt(temp[0]) * 60 + parseFloat(temp[1]);
+            lyricArray.push([temp, line]);
+        }
+    }
+    lyricArray.sort((a, b) => {
+        return a[0] - b[0];
+    });
+    let temp = "";
+    for (let i = 0; i < lyricArray.length; i++) {
+        if (i === 0)
+            temp = `<li class="selected">${lyricArray[i][1]}</li>`;
+        else
+            temp = temp + `<li>${lyricArray[i][1]}</li>`;
+    }
+    lyricBox.innerHTML = temp;
+}
+
+function scrollLyric() {
+    if (Math.abs(audio.currentTime - lastAudioTime) < intervalTime)
+        return;
+    let li = document.querySelectorAll("#lyric-box li");
+    if (li[lyricArray.length - 1].classList.contains("selected") && audio.currentTime > lyricArray[lyricArray.length - 1][0])
+        return;
+    for (let i = 0; i < lyricArray.length; i++) {
+        if (audio.currentTime > lyricArray[i][0]) {
+            let selected = lyricBox.querySelector(".selected");
+            selected.classList.remove("selected");
+            li[i].classList.add("selected");
+            lyricBox.parentNode.scrollTop = i * 50;
+            lastAudioTime = audio.currentTime;
+            intervalTime = lyricArray[i + 1][0] - lyricArray[i][0];
+        }
+    }
 }

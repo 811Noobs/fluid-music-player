@@ -1,0 +1,107 @@
+#audio-play__section {
+  background-color: #FFFFFF;
+  position: absolute;
+  z-index: 9999;
+  height: calc(100% - 130px);
+  margin-top: 60px;
+  overflow: hidden;
+  width: 100%;
+  display: flex; }
+  #audio-play__section .audio-play__section--left {
+    width: 50%;
+    max-width: 80vh;
+    margin: 0 auto; }
+    #audio-play__section .audio-play__section--left .audio-play__left--img {
+      margin: 20vh auto 15vh auto;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #audio-play__section .audio-play__section--left .audio-play__left--img img {
+        border-radius: 50%;
+        width: 35vh;
+        height: 35vh; }
+    #audio-play__section .audio-play__section--left .audio-play__left--button {
+      margin: 10vh auto;
+      width: 35vh;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center; }
+      #audio-play__section .audio-play__section--left .audio-play__left--button button {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        outline: none;
+        width: 4.5vh;
+        height: 4.5vh; }
+        #audio-play__section .audio-play__section--left .audio-play__left--button button img {
+          vertical-align: middle;
+          cursor: pointer;
+          width: 100%;
+          height: 100%; }
+  #audio-play__section .audio-play__section--right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto; }
+    #audio-play__section .audio-play__section--right .audio-play__right--information {
+      height: 25vh;
+      box-shadow: #e7e6ff88 0 16px 8px -8px; }
+      #audio-play__section .audio-play__section--right .audio-play__right--information h1 {
+        margin: 5vh 0 5vh 0;
+        color: black;
+        font-size: 6vh;
+        font-family: "Noto Sans Med";
+        text-align: center; }
+      #audio-play__section .audio-play__section--right .audio-play__right--information div {
+        display: flex;
+        justify-content: center; }
+        #audio-play__section .audio-play__section--right .audio-play__right--information div label {
+          font-family: "Noto Sans";
+          color: #B1B1B1;
+          font-size: 2.5vh;
+          margin-right: 1vw; }
+        #audio-play__section .audio-play__section--right .audio-play__right--information div span {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-align: center;
+          width: 30%;
+          display: inline-block;
+          font-family: "Noto Sans";
+          font-size: 2.5vh;
+          margin-bottom: 1vh;
+          background: #ACB8FD;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          letter-spacing: 1px; }
+    #audio-play__section .audio-play__section--right .audio-play__right--lrc {
+      height: calc(100vh - 25vh - 130px);
+      overflow-y: scroll;
+      overflow-x: hidden;
+      scroll-behavior: smooth; }
+      #audio-play__section .audio-play__section--right .audio-play__right--lrc ul {
+        position: relative;
+        margin-top: 27vh;
+        margin-bottom: 27vh;
+        list-style: none;
+        padding: 0;
+        transition: all .5s; }
+        #audio-play__section .audio-play__section--right .audio-play__right--lrc ul li {
+          font-family: "Noto Sans";
+          font-size: 18px;
+          color: #b1b1b1;
+          line-height: 56px;
+          font-weight: 400;
+          text-align: center;
+          letter-spacing: 5px;
+          height: 50px; }
+        #audio-play__section .audio-play__section--right .audio-play__right--lrc ul li.selected {
+          font-family: "Noto Sans Med";
+          font-size: 24px;
+          background: #ADB8F1;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 600; }
+    #audio-play__section .audio-play__section--right .audio-play__right--lrc::-webkit-scrollbar {
+      display: none; }
