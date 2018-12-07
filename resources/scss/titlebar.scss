@@ -1,6 +1,4 @@
 @import "hue.scss";
-$title_bar_height:60px;
-$title_bar_button_size:20px;
 .app-window__titlebar {
     position: fixed;
     top: 0;
@@ -35,11 +33,53 @@ $title_bar_button_size:20px;
             color: #D1D1D1;
             background: #fff;
             font-size: 20px;
-            padding: 0;
+            padding: 0 4px;
             line-height: $title_bar_button_size;
             box-shadow: #e7e6ff88 0px 8px 12px 0px;
+            cursor: pointer;
             &:focus {
                 outline: none;
+            }
+            .titlebar-control__button--min {
+                width: 8px;
+                height: 2px;
+                padding: 0 2px;
+                border-radius: 2px;
+                background: #d1d1d1;
+            }
+            .titlebar-control__button--max {
+                width: 8px;
+                height: 4px;
+                padding: 0;
+                border: #d1d1d1 2px solid;
+                border-radius: 2px;
+            }
+            .titlebar-control__button--exit {
+                padding: 0; //border: #d1d1d1 2px solid;
+                border-radius: 2px;
+                position: relative;
+                &:before {
+                    content: '';
+                    width: 9.3px;
+                    height: 2px;
+                    border-radius: 2px;
+                    background: #d1d1d1;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%)rotate(45deg);
+                }
+                &:after {
+                    content: '';
+                    width: 9.3px;
+                    height: 2px;
+                    border-radius: 2px;
+                    background: #d1d1d1;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%) rotate(-45deg);
+                }
             }
         }
     }
