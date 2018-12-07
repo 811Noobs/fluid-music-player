@@ -120,5 +120,7 @@ class SongList extends Database {
         super.save();
     }
 }
+let db = new Database();
+module.exports = db;
 
-module.exports =  new Database();
+// console.log("require database once.");

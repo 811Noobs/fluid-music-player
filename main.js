@@ -1,5 +1,4 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
-require("./resources/js/database.js");
 
 /* const sass = require('node-sass');
 sass.render({
@@ -28,12 +27,24 @@ function createWindow() {
         frame: false,
         show: false,
     });
+    miniwin = new BrowserWindow({
+        width: 1200,
+        height: 744,
+        frame: false,
+        show: false,
+    });
     loading.loadFile('loading.html');
     win.loadFile('app.html');
     loading.once('ready-to-show', () => {
+        let db;
         loading.show();
+        
         win.once('ready-to-show', () => {
-            let time = new Date();
+            // let time = new Date();
+            // // while (new Date() - time < 3000) //阻塞，延时
+            // //     ;
+            db = require("./resources/js/database.js");
+            db.read();
             loading.close();
             loading = null;
             win.show();
@@ -43,15 +54,16 @@ function createWindow() {
     win.webContents.openDevTools();
 
     // 当 window 被关闭，这个事件会被触发。
-    win.on('closed', () => {
-        // 取消引用 window 对象，如果你的应用支持多窗口的话，
-        // 通常会把多个 window 对象存放在一个数组里面，
-        // 与此同时，你应该删除相应的元素。
-        win = null;
-    });
+    // win.on('closed', () => {
+    //     // 取消引用 window 对象，如果你的应用支持多窗口的话，
+    //     // 通常会把多个 window 对象存放在一个数组里面，
+    //     // 与此同时，你应该删除相应的元素。
+    //     win = null;
+    // });
 
 
     const ipc = ipcMain;
+
     //登录窗口最小化
     ipc.on('window-min', function () {
         win.minimize();
@@ -66,6 +78,7 @@ function createWindow() {
     });
     ipc.on('window-close', function () {
         win.close();
+        win = null;
     })
 }
 

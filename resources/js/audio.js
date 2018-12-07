@@ -1,3 +1,4 @@
+const db = require("electron").remote.require("./resources/js/database.js");
 //获取文件目录下的歌曲和歌词music和lrc为对象{歌曲名：“path”}前者不带后缀，后者带后缀
 let audio = document.querySelector("audio");
 /*三个button选中的其实是图片，为了更好地控制可响应点击的区域*/
@@ -138,7 +139,6 @@ audio.addEventListener("timeupdate", () => {
     let percent = time / wholeTime;
     currentTimeSpan.innerText = transTimeToMin(time);
     controller.setProgressWidth(percent);
-    scrollLyric();
 });
 wholeTimeProgress.addEventListener("mousedown", mouseDownFunctionForTime);
 wholeTimeProgress.addEventListener("mousemove", mouseMoveFunctionForTime);
@@ -292,7 +292,6 @@ var intervalTime = 0;
 var lastAudioTime = 0;
 
 function analyzeLrc(path) {
-    lyricBox.innerHTML = "";
     let fs = require("fs");
     fs.open(path, "r", (err, fd) => {
         if (err) {
@@ -348,6 +347,8 @@ function setInformation() {
             temp = temp + `<li>${lyricArray[i][1]}</li>`;
     }
     lyricBox.innerHTML = temp;
+    audio.removeEventListener("timeupdate",scrollLyric);
+    audio.addEventListener("timeupdate",scrollLyric);
 }
 
 function scrollLyric() {
