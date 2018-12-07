@@ -174,7 +174,7 @@ window.onload = function () {
             //if (voiceHeight[step * i]>140){continue};
 
 
-            var audioHeight = voiceHeight[step * i / 2 + 0];
+            var audioHeight = (voiceHeight[step * i / 2 + 200]);
             //console.log(audioHeight);
             let x1 = oW / 2 + Math.sin(2 * Math.PI * i / (count * 1)) * (audioHeight + 25) / 1;
             let y1 = oH / 2 - Math.cos(2 * Math.PI * i / (count * 1)) * (audioHeight + 25) / 1;
@@ -210,7 +210,7 @@ window.onload = function () {
         }
         window.requestAnimationFrame(arguments.callee);
     }
-    drawRound();
+    drawCurve();
 
 
     /*
