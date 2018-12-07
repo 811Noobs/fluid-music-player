@@ -32,6 +32,8 @@ class controllerClass {
             }
         }
         audio.src = music[`${controller.musicName}`];
+        intervalTime = 0;
+        lastAudioTime = 0;
         analyzeLrc(lrc[`${controller.musicName}`]);
         audio.load();
         currentTimeSpan.innerText = "00:00";
@@ -51,6 +53,8 @@ class controllerClass {
             }
         }
         audio.src = music[`${controller.musicName}`];
+        intervalTime = 0;
+        lastAudioTime = 0;
         analyzeLrc(lrc[`${controller.musicName}`]);
         audio.load();
         currentTimeSpan.innerText = "00:00";
@@ -284,8 +288,9 @@ var title = document.querySelector(".information-name");
 var singer = document.querySelector("#information-singer");
 var album = document.querySelector("#information-album");
 var musicImg = document.querySelector(".audio-play__left--img img");
-var intervalTime=0;
-var lastAudioTime=0;
+var intervalTime = 0;
+var lastAudioTime = 0;
+
 function analyzeLrc(path) {
     lyricBox.innerHTML = "";
     let fs = require("fs");
@@ -346,17 +351,19 @@ function setInformation() {
 }
 
 function scrollLyric() {
-    if(Math.abs(audio.currentTime-lastAudioTime)<intervalTime)
+    if (Math.abs(audio.currentTime - lastAudioTime) < intervalTime)
         return;
     let li = document.querySelectorAll("#lyric-box li");
+    if (li[lyricArray.length - 1].classList.contains("selected") && audio.currentTime > lyricArray[lyricArray.length - 1][0])
+        return;
     for (let i = 0; i < lyricArray.length; i++) {
         if (audio.currentTime > lyricArray[i][0]) {
             let selected = lyricBox.querySelector(".selected");
             selected.classList.remove("selected");
             li[i].classList.add("selected");
             lyricBox.parentNode.scrollTop = i * 50;
-            lastAudioTime=audio.currentTime;
-            intervalTime=lyricArray[i+1][0]-lyricArray[i][0];
+            lastAudioTime = audio.currentTime;
+            intervalTime = lyricArray[i + 1][0] - lyricArray[i][0];
         }
     }
 }

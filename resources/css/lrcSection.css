@@ -106,10 +106,11 @@
   font-family: "Noto Sans";
   font-size: 18px;
   color: #b1b1b1;
-  line-height: 50px;
+  line-height: 56px;
   font-weight: 400;
   text-align: center;
   letter-spacing: 5px;
+  height: 50px;
 }
 #audio-play__section .audio-play__section--right .audio-play__right--lrc ul li.selected {
   font-family: "Noto Sans Med";
