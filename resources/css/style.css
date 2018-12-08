@@ -230,7 +230,7 @@ img {
     position: absolute;
     bottom: 0;
     /* background: #ddd; */
-    border-top: #ddd 1.5px solid;
+    border-top: #ddd 0.5px solid;
     display: flex; }
     .app-content__sidebar .sidebar-info .sidebar-info__left {
       width: 110px; }
