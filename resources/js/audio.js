@@ -1,7 +1,7 @@
 const db = require("electron").remote.require("./resources/js/database.js");
 const fs = require("fs");
 const NodeID3 = require('node-id3');
-var configuration=JSON.parse(fs.readFileSync("./resources/configuration.json"));
+var configuration = JSON.parse(fs.readFileSync("./resources/configuration.json"));
 
 let information;
 //获取文件目录下的歌曲和歌词music和lrc为对象{歌曲名：“path”}前者不带后缀，后者带后缀
@@ -33,8 +33,27 @@ let [lastId, firstId] = readAndSetDatabase();
 class controllerClass {
     constructor(volume, id) {
         this.volume = volume;
-        this.id = id;
+        for (let i = 1; i <= lastId; i++) {
+            if (db.read([["id", i]]).id === undefined) {
+                continue;
+            } else if (!fs.existsSync(db.read([["id", i]]).path)) {
+                db.delete([["id", i]]);
+            }
+        }
+        [lastId,firstId]=readAndSetDatabase();
+        while(1){
+            if(db.read([["id",id]]).id===undefined){
+                if(id===lastId){
+                    id=1;
+                }else{
+                    id++;
+                }
+            }else{
+                break;
+            }
+        }
         information = db.read([["id", id]]);
+        this.id = id;
     }
 
     nextMusic() {
@@ -59,6 +78,7 @@ class controllerClass {
         if (play) {
             audio.play();
         }
+        lyricBox.parentNode.scrollTop=0;
     }
 
     previousMusic() {
@@ -83,6 +103,7 @@ class controllerClass {
         if (play) {
             audio.play();
         }
+        lyricBox.parentNode.scrollTop=0;
     }
 
     setProgressWidth(percent) {
@@ -104,8 +125,8 @@ let controller = new controllerClass(configuration.volume, configuration.id);//�
 audio.src = information.path;
 analyzeLrc(information.lrc);
 audio.load();
-audio.currentTime=configuration.currentTime;
-controller.setProgressWidth(controller.currentTime/audio.duration);
+audio.currentTime = configuration.currentTime;
+controller.setProgressWidth(controller.currentTime / audio.duration);
 controller.setVolume(controller.volume);
 audio.addEventListener("canplay", () => {
     wholeTimeSpan.innerText = transTimeToMin(audio.duration);
@@ -141,7 +162,7 @@ playOrPauseBtn.addEventListener("click", () => {
 
 previousBtn.addEventListener("click", controller.previousMusic);
 nextBtn.addEventListener("click", controller.nextMusic);
-audio.addEventListener("ended",controller.nextMusic);
+audio.addEventListener("ended", controller.nextMusic);
 
 /******************************************************************/
 
