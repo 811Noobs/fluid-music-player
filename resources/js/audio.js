@@ -28,6 +28,7 @@ let volumebar = document.querySelector(".volume-louder");
 let currentVolume = document.querySelector(".volume-louder__current");
 let lyricBox = document.querySelector("#lyric-box");
 let lyric, lyricArray;
+//console.log(db);
 let [lastId, firstId] = readAndSetDatabase();
 
 class controllerClass {
@@ -40,15 +41,15 @@ class controllerClass {
                 db.delete([["id", i]]);
             }
         }
-        [lastId,firstId]=readAndSetDatabase();
-        while(1){
-            if(db.read([["id",id]]).id===undefined){
-                if(id===lastId){
-                    id=1;
-                }else{
+        [lastId, firstId] = readAndSetDatabase();
+        while (1) {
+            if (db.read([["id", id]]).id === undefined) {
+                if (id === lastId) {
+                    id = 1;
+                } else {
                     id++;
                 }
-            }else{
+            } else {
                 break;
             }
         }
@@ -78,7 +79,7 @@ class controllerClass {
         if (play) {
             audio.play();
         }
-        lyricBox.parentNode.scrollTop=0;
+        lyricBox.parentNode.scrollTop = 0;
     }
 
     previousMusic() {
@@ -103,7 +104,7 @@ class controllerClass {
         if (play) {
             audio.play();
         }
-        lyricBox.parentNode.scrollTop=0;
+        lyricBox.parentNode.scrollTop = 0;
     }
 
     setProgressWidth(percent) {
