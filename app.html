@@ -5,136 +5,255 @@
     <meta charset="UTF-8">
     <title>Fluid Music Player</title>
     <link href="resources/css/style.css" rel="stylesheet">
+    <link href="resources/css/content.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- global window -->
-    <div class="app-window">
+<!-- global window -->
+<div class="app-window">
 
-        <!-- title bar, which includes title, search bar and button sets -->
-        <!-- TODO: control buttons(minimalize,maximize,exit), secondary buttons, search bar -->
-        <div class="app-window__titlebar">
-            <h1 class="app-icon fluid-logo">
-                Fluid
-            </h1>
-            <div class="titlebar-control">
-                <button class="titlebar-control__button">
-                    <div class="titlebar-control__button--min"></div>
-                </button>
-                <button class="titlebar-control__button">
-                    <div class="titlebar-control__button--max"></div>
-                </button>
-                <button class="titlebar-control__button">
-                    <div class="titlebar-control__button--exit"></div>
-                </button>
-            </div>
-            <!-- <div class="titlebar-secondary">
-                <button class="titlebar-control__button ">1</button>
-                <button class="titlebar-control__button ">2</button>
-                <button class="titlebar-control__button ">3</button>
+    <!-- title bar, which includes title, search bar and button sets -->
+    <!-- TODO: control buttons(minimalize,maximize,exit), secondary buttons, search bar -->
+    <div class="app-window__titlebar">
+        <h1 class="app-icon fluid-logo">
+            Fluid
+        </h1>
+        <div class="titlebar-control">
+            <button class="titlebar-control__button">
+                <div class="titlebar-control__button--min"></div>
+            </button>
+            <button class="titlebar-control__button">
+                <div class="titlebar-control__button--max"></div>
+            </button>
+            <button class="titlebar-control__button">
+                <div class="titlebar-control__button--exit"></div>
+            </button>
+        </div>
+        <!-- <div class="titlebar-secondary">
+            <button class="titlebar-control__button ">1</button>
+            <button class="titlebar-control__button ">2</button>
+            <button class="titlebar-control__button ">3</button>
+        </div> -->
+    </div>
+    <!-- all contents should be there -->
+    <div class="app-content">
+
+        <div class="app-content__sidebar">
+            <!-- <div class="sidebar-content sidebar-content__discovery">
+                <div class="sidebar-content__title">
+                    <img class="sidebar-content__icon">
+                    <h2 class="sidebar-content__heading">发现音乐</h2>
+                </div>
+                <ul class="sidebar-content__list">
+                    <li class="sidebar-content__item">最新歌曲</li>
+                    <li class="sidebar-content__item">热门歌曲</li>
+                    <li class="sidebar-content__item">歌曲推荐</li>
+                </ul>
             </div> -->
-        </div>
-        <!-- all contents should be there -->
-        <div class="app-content">
-
-            <div class="app-content__sidebar">
-                <!-- <div class="sidebar-content sidebar-content__discovery">
-                    <div class="sidebar-content__title">
-                        <img class="sidebar-content__icon">
-                        <h2 class="sidebar-content__heading">发现音乐</h2>
-                    </div>
-                    <ul class="sidebar-content__list">
-                        <li class="sidebar-content__item">最新歌曲</li>
-                        <li class="sidebar-content__item">热门歌曲</li>
-                        <li class="sidebar-content__item">歌曲推荐</li>
-                    </ul>
-                </div> -->
-                <div class="sidebar-content">
-                    <ul class="sidebar-content__list">
-                        <li class="sidebar-content__item">最新歌曲</li>
-                        <li class="sidebar-content__item">歌曲推荐</li>
-                        <li class="sidebar-content__item">我的收藏</li>
-                        <li class="sidebar-content__item">下载管理</li>
-                    </ul>
+            <div class="sidebar-content">
+                <ul class="sidebar-content__list">
+                    <li class="sidebar-content__item">最新歌曲</li>
+                    <li class="sidebar-content__item">歌曲推荐</li>
+                    <li class="sidebar-content__item">我的收藏</li>
+                    <li class="sidebar-content__item">下载管理</li>
+                </ul>
+            </div>
+            <div class="sidebar-info">
+                <div class="sidebar-info__left"><img class="sidebar-info__cover" src="resources/images/album-cover.png">
                 </div>
-                <div class="sidebar-info">
-                    <div class="sidebar-info__left"><img class="sidebar-info__cover" src="resources/images/album-cover.png"></div>
-                    <div class="sidebar-info__right">
-                        <p class="sidebar-info__title">Youth</p>
-                        <p class="sidebar-info__artist">Troye Sivan</p>
-                    </div>
+                <div class="sidebar-info__right">
+                    <p class="sidebar-info__title">Youth</p>
+                    <p class="sidebar-info__artist">Troye Sivan</p>
                 </div>
-
-                <div class="sidebar-resizer"></div>
             </div>
 
-            <!-- every pages should be wrapped in a section -->
-
-            <div class="app-content__section">
-                <!-- home section -->
-                <section id="section-1" class="section-wrapper">
-                </section>
-            </div>
-
+            <div class="sidebar-resizer"></div>
         </div>
 
-        <!--bottom bar ; include controller / time bar / volume / play mode -->
-        <div class="app-window__bottombar">
-            <!--controller-->
+        <!-- every pages should be wrapped in a section -->
 
-            <div class="bottombar-control__controller">
-                <button class="bottombar-control__button--previous">
-                    <img src="resources/images/pre.png">
-                </button>
-                <button class="bottombar-control__button--pauseOrPlay">
-                    <img src="resources/images/播放正方形.png">
-                </button>
-                <button class="bottombar-control__button--next">
-                    <img src="resources/images/next.png">
-                </button>
-            </div>
+        <div class="app-content__section">
+            <!-- home section -->
 
-            <!--time bar-->
-
-            <div class="bottombar-control__timebar">
-                <span class="timebar-time__current">00:00</span>
-                <div class="timebar-time__progressbar">
-                    <div class="progressbar-whole"></div>
-                    <div class="progressbar-current"></div>
+            <section id="section-1" class="section_scroll">
+                <div class="more_ul_container">
+                    <ul class="more_ul" id="more_ul">
+                        <li id="more_container1" data-num="1" class="more_container more_container_noactive"
+                            style="left:0%;" data-dir="left" onclick="moreOnClick(this);"><img
+                                src="resources/images/scroll/1.png"/></li>
+                        <li id="more_container2" data-num="2" class="more_container more_container_active"
+                            style="left:25%;z-index:50;" data-dir="none" onclick="moreOnClick(this);"><img
+                                src="resources/images/scroll/2.png"/></li>
+                        <li id="more_container3" data-num="3" class="more_container more_container_noactive"
+                            style="left: 50%;" data-dir="right" onclick="moreOnClick(this);"><img
+                                src="resources/images/scroll/3.png"/></li>
+                    </ul>
                 </div>
-                <span class="timebar-time__whole">00:00</span>
-            </div>
-
-            <!--volume-->
-
-            <div class="bottombar-control__volume">
-                <div class="volume-icon">
-                    <img src="resources/images/loud.png" class="volume-icon__open">
+                <div class="more_nav_ul_container">
+                    <ul>
+                        <li data-num="1" id="more_nav_ribbon1" class="more_nav_noactive more_nav_item"
+                            onclick="ribbonOnClick(this);"></li>
+                        <li data-num="2" id="more_nav_ribbon2" class="more_nav_active more_nav_item"
+                            onclick="ribbonOnClick(this);"></li>
+                        <li data-num="3" id="more_nav_ribbon3" class="more_nav_noactive more_nav_item"
+                            onclick="ribbonOnClick(this);"></li>
+                    </ul>
                 </div>
-                <div class="volume-louder">
-                    <div class="volume-louder__whole"></div>
-                    <div class="volume-louder__current"></div>
+            </section>
+            <section id="section-2" class="section_songs">
+                <h4>最新歌曲</h4>
+                <div class="songs_container">
+                    <div class="songs_item">
+                        <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                        <div class="songs_item_author_description">
+                            <h4>Youth</h4>
+                            <h5>Troye Sivan</h5>
+                        </div>
+                    </div>
+                    <div class="songs_item">
+                        <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                        <div class="songs_item_author_description">
+                            <h4>Youth</h4>
+                            <h5>Troye Sivan</h5>
+                        </div>
+                    </div>
+                    <div class="songs_item">
+                        <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                        <div class="songs_item_author_description">
+                            <h4>Youth</h4>
+                            <h5>Troye Sivan</h5>
+                        </div>
+                    </div>
+                    <div class="songs_item">
+                        <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                        <div class="songs_item_author_description">
+                            <h4>Youth</h4>
+                            <h5>Troye Sivan</h5>
+                        </div>
+                    </div>
+                    <div class="songs_item">
+                        <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                        <div class="songs_item_author_description">
+                            <h4>Youth</h4>
+                            <h5>Troye Sivan</h5>
+                        </div>
+                    </div>
+                    <div class="songs_item">
+                        <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                        <div class="songs_item_author_description">
+                            <h4>Youth</h4>
+                            <h5>Troye Sivan</h5>
+                        </div>
+                    </div>
+                    <div class="songs_item">
+                        <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                        <div class="songs_item_author_description">
+                            <h4>Youth</h4>
+                            <h5>Troye Sivan</h5>
+                        </div>
+                    </div>
+                    <div class="songs_item">
+                        <div class="songs_item_author_img"><img src="resources/images/singer.png"/></div>
+                        <div class="songs_item_author_description">
+                            <h4>Youth</h4>
+                            <h5>Troye Sivan</h5>
+                        </div>
+                    </div>
                 </div>
+
+            </section>
+
+        </div>
+    </div>
+    <!--bottom bar ; include controller / time bar / volume / play mode -->
+    <div class="app-window__bottombar">
+        <!--controller-->
+
+        <div class="bottombar-control__controller">
+            <button class="bottombar-control__button--previous">
+                <img src="resources/images/pre.png">
+            </button>
+            <button class="bottombar-control__button--pauseOrPlay">
+                <img src="resources/images/play.png">
+            </button>
+            <button class="bottombar-control__button--next">
+                <img src="resources/images/next.png">
+            </button>
+        </div>
+
+        <!--time bar-->
+
+        <div class="bottombar-control__timebar">
+            <span class="timebar-time__current">00:00</span>
+            <div class="timebar-time__progressbar">
+                <div class="progressbar-whole"></div>
+                <div class="progressbar-current"></div>
             </div>
+            <span class="timebar-time__whole">00:00</span>
+        </div>
 
-            <!--play mode-->
+        <!--volume-->
 
-            <div class="bottombar-control__playmode">
-                <img src="resources/images/repeat.png" class="playmode-icon__repeat">
+        <div class="bottombar-control__volume">
+            <div class="volume-icon">
+                <img src="resources/images/loud.png" class="volume-icon__open">
             </div>
+            <div class="volume-louder">
+                <div class="volume-louder__whole"></div>
+                <div class="volume-louder__current"></div>
+            </div>
+        </div>
 
+        <!--play mode-->
+
+        <div class="bottombar-control__playmode">
+            <img src="resources/images/repeat.png" class="playmode-icon__repeat">
         </div>
 
     </div>
 
+</div>
+<section id="audio-play__section">
+    <div class="audio-play__section--left">
+        <div class="audio-play__left--img">
+            <img src="resources/images/audioImg-Temp.jpg">
+        </div>
+        <div class="audio-play__left--button">
+            <button class="button-favorite">
+                <img src="resources/images/favorate.png">
+            </button>
+            <button class="button-download">
+                <img src="resources/images/download.png">
+            </button>
+            <button class="button-share">
+                <img src="resources/images/share.png">
+            </button>
+        </div>
+    </div>
+    <div class="audio-play__section--right">
+        <div class="audio-play__right--information">
+            <h1 class="information-name"></h1>
+            <!--<marquee behavior="scroll" class="information-name"></marquee>-->
+            <div>
+                <label for="information-album">专辑</label>
+                <span id="information-album"></span>
+                <label for="information-singer">歌手</label>
+                <span id="information-singer"></span>
+            </div>
+        </div>
+        <div class="audio-play__right--lrc">
+            <ul id="lyric-box">
+            </ul>
+        </div>
+    </div>
+</section>
 
 
-
-
-    <audio></audio>
-    <script src="resources/js/taskbar.js"></script>
-    <script src="resources/js/appContent.js"></script>
-    <script src="resources/js/audio.js"></script>
+<audio></audio>
+<script src="resources/js/taskbar.js"></script>
+<script src="resources/js/appContent.js"></script>
+<script src="resources/js/audio.js"></script>
+<script src="resources/js/scroll.js"></script>
 </body>
 
 </html>
