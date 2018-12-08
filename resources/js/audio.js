@@ -17,6 +17,12 @@ let title = document.querySelector(".information-name");
 let singer = document.querySelector("#information-singer");
 let album = document.querySelector("#information-album");
 let musicImg = document.querySelector(".audio-play__left--img img");
+
+const coverSidebar = document.querySelector(".sidebar-info__cover");
+const titleSidebar = document.querySelector(".sidebar-info__title");
+const artistSidebar = document.querySelector(".sidebar-info__artist");
+
+
 let intervalTime = 0;
 let lastAudioTime = 0;
 /****************************************/
@@ -44,7 +50,7 @@ class controllerClass {
         [lastId, firstId] = readAndSetDatabase();
         while (1) {
             if (db.read([["id", id]]).id === undefined) {
-                if (id === lastId) {
+                if (id >= lastId) {
                     id = 1;
                 } else {
                     id++;
@@ -364,7 +370,6 @@ function transTimeToMin(value) {
 
 /*****************歌词解析**********************************/
 
-
 function analyzeLrc(path) {
     if (!fs.existsSync(path)) {
         lyricBox.innerHTML = `<li class="selected">暂无本地歌词</li>`;
@@ -392,13 +397,17 @@ function setInformation(hasLrc) {
     NodeID3.read(information.path, (err, tags) => {
         if (tags === false || typeof tags.image === "undefined" || typeof tags.image.imageBuffer === "undefined") {
             musicImg.src = "./resources/images/audioImg-Temp.jpg";
+            musicImgSidebar.src = "./resources/images/audioImg-Temp.jpg";
         } else {
             musicImg.src = `data:;base64,${tags.image.imageBuffer.toString('base64')}`;
+            coverSidebar.src = `data:;base64,${tags.image.imageBuffer.toString('base64')}`;
         }
     });
     title.innerText = information.name;
     singer.innerText = information.singer;
     album.innerText = information.album;
+    titleSidebar.innerText = information.name;
+    artistSidebar.innerText = information.singer;
     if (hasLrc) {
         lyricArray = [];
         let timeReg = /\[\d{2}:\d{2}.\d{2,}]/g;

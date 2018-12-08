@@ -1,12 +1,19 @@
 #audio-play__section {
   background-color: #FFFFFF;
-  position: absolute;
-  z-index: 9999;
+  position: fixed;
+  z-index: 60;
   height: calc(100% - 130px);
-  margin-top: 60px;
   overflow: hidden;
-  width: 100%;
+  width: 0;
+  height: 0;
+  bottom: 70px;
+  opacity: 0;
+  transition: all .5s ease-in-out;
   display: flex; }
+  #audio-play__section.active {
+    height: calc(100% - 130px);
+    width: 100%;
+    opacity: 1; }
   #audio-play__section .audio-play__section--left {
     width: 50%;
     max-width: 80vh;
@@ -105,3 +112,10 @@
           -webkit-text-fill-color: transparent; }
     #audio-play__section .audio-play__section--right .audio-play__right--lrc::-webkit-scrollbar {
       display: none; }
+
+#canvas {
+  position: absolute;
+  z-index: -5;
+  height: 50vh;
+  /* margin: 20vh auto 15vh auto; */
+  width: auto; }

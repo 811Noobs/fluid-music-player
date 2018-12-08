@@ -73,6 +73,27 @@ document.addEventListener("mouseup", (event) => {
     sidebar.resizable = false;
 });
 
+const sidebarPlayerToggle = document.querySelector(".sidebar-info__cover");
+const PlayerPlayerToggle = document.querySelector(".audio-play__left--img img");
+const playerSection = document.getElementById("audio-play__section");
+
+function togglePlayer() {
+    let classList = playerSection.classList;
+    if (classList.contains("active")) {
+        classList.remove("active");
+    } else {
+        classList.add("active");
+    }
+}
+
+
+sidebarPlayerToggle.addEventListener("click", (event) => {
+    togglePlayer();
+});
+PlayerPlayerToggle.addEventListener("click", (event) => {
+    togglePlayer();
+});
+
 window.onresize = () => {
     // sectionWrap.setWidth(document.body.offsetWidth - sidebar.getWidth() - 1);
 }

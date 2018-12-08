@@ -37,6 +37,9 @@ img {
         .bottombar-control__button--pauseOrPlay {
             //box-shadow: 0 12px 300px 10px #a9b2fd;
             border-radius: 50%;
+            img {
+                height: 100%;
+            }
         }
     } //timeProgressBar
     .bottombar-control__timebar {

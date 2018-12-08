@@ -9,21 +9,15 @@ img {
   display: flex;
   align-items: center;
   -webkit-user-select: none;
-
   background-color: white;
   box-shadow: #e7e6ff20 0px 0px 8px 8px;
-  z-index: 100;
-
-  background-color: white; }
-
-
-
+  z-index: 100; }
   .app-window__bottombar .bottombar-control__controller {
     margin: 0 auto;
     width: 16%;
     height: 56px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center; }
     .app-window__bottombar .bottombar-control__controller button {
       border: none;
@@ -37,11 +31,9 @@ img {
         vertical-align: middle;
         cursor: pointer; }
     .app-window__bottombar .bottombar-control__controller .bottombar-control__button--pauseOrPlay {
-
-      box-shadow: 0 12px 300px 10px #a9b2fd;
-
-      box-shadow: 0 12px 300px 10px #a9b2fd;
       border-radius: 50%; }
+      .app-window__bottombar .bottombar-control__controller .bottombar-control__button--pauseOrPlay img {
+        height: 100%; }
   .app-window__bottombar .bottombar-control__timebar {
     width: 60%;
     height: 56px;
