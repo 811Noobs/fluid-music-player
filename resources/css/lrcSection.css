@@ -1,11 +1,11 @@
 #audio-play__section {
+  user-select: none;
   background-color: #FFFFFF;
   position: fixed;
   z-index: 60;
-  height: calc(100% - 130px);
+  height: 0;
   overflow: hidden;
   width: 0;
-  height: 0;
   bottom: 70px;
   opacity: 0;
   transition: all .5s ease-in-out;
@@ -55,28 +55,27 @@
       height: 25vh;
       box-shadow: #e7e6ff88 0 16px 8px -8px; }
       #audio-play__section .audio-play__section--right .audio-play__right--information h1 {
-        margin: 5vh 2vh 5vh 2vh;
+        margin: 5vh 0 5vh 0;
         color: black;
-        font-size: 5vh;
-        font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif;
-        text-align: center;
-        overflow: hidden;
-        white-space: nowrap; }
+        font-size: 6vh;
+        font-family: "Noto Sans Med";
+        text-align: center; }
       #audio-play__section .audio-play__section--right .audio-play__right--information div {
         display: flex;
         justify-content: center; }
         #audio-play__section .audio-play__section--right .audio-play__right--information div label {
-          font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif;
+          font-family: "Noto Sans";
           color: #B1B1B1;
           font-size: 2.5vh;
           margin-right: 1vw; }
         #audio-play__section .audio-play__section--right .audio-play__right--information div span {
           overflow: hidden;
+          text-overflow: ellipsis;
           white-space: nowrap;
           text-align: center;
           width: 30%;
           display: inline-block;
-          font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif;
+          font-family: "Noto Sans";
           font-size: 2.5vh;
           margin-bottom: 1vh;
           background: #ACB8FD;
@@ -96,20 +95,20 @@
         padding: 0;
         transition: all .5s; }
         #audio-play__section .audio-play__section--right .audio-play__right--lrc ul li {
-          font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif;
+          font-family: "Noto Sans";
           font-size: 18px;
           color: #b1b1b1;
-          line-height: 50px;
+          line-height: 56px;
+          font-weight: 400;
           text-align: center;
-          letter-spacing: 5px;
-          min-height: 50px; }
+          height: 50px; }
         #audio-play__section .audio-play__section--right .audio-play__right--lrc ul li.selected {
-          font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif;
-          font-weight: 700;
+          font-family: "Noto Sans Med";
           font-size: 24px;
           background: #ADB8F1;
           -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent; }
+          -webkit-text-fill-color: transparent;
+          font-weight: 600; }
     #audio-play__section .audio-play__section--right .audio-play__right--lrc::-webkit-scrollbar {
       display: none; }
 

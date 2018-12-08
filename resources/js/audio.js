@@ -22,6 +22,7 @@ const coverSidebar = document.querySelector(".sidebar-info__cover");
 const titleSidebar = document.querySelector(".sidebar-info__title");
 const artistSidebar = document.querySelector(".sidebar-info__artist");
 
+let volumnButton = document.querySelector("#volume-icon");
 
 let intervalTime = 0;
 let lastAudioTime = 0;
@@ -465,4 +466,14 @@ function scrollLyric() {
     }
 }
 
+let previousVolumn = 0;
 
+function clickVolumnImg(e) {
+    if(controller.volume==0){
+        controller.setVolume(previousVolumn);
+    } else {
+        previousVolumn = controller.volume;
+        controller.setVolume(0);
+    }
+}
+volumnButton.addEventListener("click",clickVolumnImg);

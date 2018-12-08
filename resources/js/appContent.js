@@ -25,7 +25,7 @@ class Sidebar {
         this.resizer.addEventListener("mouseup", (event) => {
             if (!this.resizable) { return; }
             this.resizable = false;
-        })
+        });
     }
 
 }
@@ -96,4 +96,4 @@ PlayerPlayerToggle.addEventListener("click", (event) => {
 
 window.onresize = () => {
     // sectionWrap.setWidth(document.body.offsetWidth - sidebar.getWidth() - 1);
-}
+};
