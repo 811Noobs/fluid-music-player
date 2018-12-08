@@ -59,7 +59,7 @@ $title_bar_height: 60px;
         margin: 5vh 2vh 5vh 2vh;
         color: black;
         font-size: 5vh;
-        font-family: "Noto Sans Med";
+        font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif;
         text-align: center;
         overflow: hidden;
         white-space: nowrap;
@@ -68,7 +68,7 @@ $title_bar_height: 60px;
         display: flex;
         justify-content: center;
         label {
-          font-family: "Noto Sans";
+          font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif;
           color: #B1B1B1;
           font-size: 2.5vh;
           margin-right: 1vw;
@@ -79,7 +79,7 @@ $title_bar_height: 60px;
           text-align: center;
           width: 30%;
           display: inline-block;
-          font-family: "Noto Sans";
+          font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif;
           font-size: 2.5vh;
           margin-bottom: 1vh;
           background: #ACB8FD;
@@ -102,22 +102,21 @@ $title_bar_height: 60px;
         padding: 0;
         transition: all .5s;
         li{
-          font-family: "Noto Sans";
+          font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif;
           font-size: 18px;
           color: rgba(177,177,177,1);
           line-height:50px;
-          font-weight: 400;
           text-align: center;
           letter-spacing: 5px;
           min-height: 50px;
         }
         li.selected{
-          font-family: "Noto Sans Med";
+          font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif;
+          font-weight: 700;
           font-size: 24px;
           background: #ADB8F1;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          font-weight: 600;
         }
       }
     }
