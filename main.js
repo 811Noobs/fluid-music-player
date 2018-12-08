@@ -36,14 +36,12 @@ function createWindow() {
     loading.loadFile('loading.html');
     win.loadFile('app.html');
     loading.once('ready-to-show', () => {
-        let db;
         loading.show();
-        
         win.once('ready-to-show', () => {
             // let time = new Date();
             // // while (new Date() - time < 3000) //阻塞，延时
             // //     ;
-            db = require("./resources/js/database.js");
+            let db = require("./resources/js/database.js");
             db.read();
             loading.close();
             loading = null;

@@ -5,3 +5,7 @@ node_modules/
 # css 
 resources/css/*.*
 !resources/css/style.css
+
+# music
+resources/musics/
+resources/lrc/

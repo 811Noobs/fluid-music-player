@@ -14,7 +14,10 @@ titlebarCtrlBtnMin.addEventListener('click', () => {
 
 });
 titlebarCtrlBtnExit.addEventListener('click', () => {
+    configuration.volume=audio.volume;
+    configuration.id=controller.id;
+    configuration.currentTime=audio.currentTime;
+    fs.writeFileSync("./resources/configuration.json", JSON.stringify(configuration));
     console.log('hello vscode!');
     ipc.send('window-close');
-
 });

@@ -8,86 +8,97 @@
   -webkit-app-region: drag;
   -webkit-user-select: none;
   box-shadow: #e7e6ff30 0px 0px 16px 16px;
-  z-index: 100; }
-  .app-window__titlebar .titlebar-control,
-  .app-window__titlebar .titlebar-secondary {
-    height: 100%;
-    -webkit-app-region: no-drag;
-    float: right;
-    margin-right: 7.5px; }
-    .app-window__titlebar .titlebar-control .titlebar-control__button,
-    .app-window__titlebar .titlebar-secondary .titlebar-control__button {
-      width: 20px;
-      height: 20px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      margin-left: 3.75px;
-      margin-right: 3.75px;
-      border-radius: 50%;
-      border: #eee;
-      color: #D1D1D1;
-      background: #fff;
-      font-size: 20px;
-      padding: 0 4px;
-      line-height: 20px;
-      box-shadow: #e7e6ff88 0px 8px 12px 0px;
-      cursor: pointer; }
-      .app-window__titlebar .titlebar-control .titlebar-control__button:focus,
-      .app-window__titlebar .titlebar-secondary .titlebar-control__button:focus {
-        outline: none; }
-      .app-window__titlebar .titlebar-control .titlebar-control__button .titlebar-control__button--min,
-      .app-window__titlebar .titlebar-secondary .titlebar-control__button .titlebar-control__button--min {
-        width: 8px;
-        height: 2px;
-        padding: 0 2px;
-        border-radius: 2px;
-        background: #d1d1d1; }
-      .app-window__titlebar .titlebar-control .titlebar-control__button .titlebar-control__button--max,
-      .app-window__titlebar .titlebar-secondary .titlebar-control__button .titlebar-control__button--max {
-        width: 8px;
-        height: 4px;
-        padding: 0;
-        border: #d1d1d1 2px solid;
-        border-radius: 2px; }
-      .app-window__titlebar .titlebar-control .titlebar-control__button .titlebar-control__button--exit,
-      .app-window__titlebar .titlebar-secondary .titlebar-control__button .titlebar-control__button--exit {
-        padding: 0;
-        border-radius: 2px;
-        position: relative; }
-        .app-window__titlebar .titlebar-control .titlebar-control__button .titlebar-control__button--exit:before,
-        .app-window__titlebar .titlebar-secondary .titlebar-control__button .titlebar-control__button--exit:before {
-          content: '';
-          width: 9.3px;
-          height: 2px;
-          border-radius: 2px;
-          background: #d1d1d1;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%) rotate(45deg); }
-        .app-window__titlebar .titlebar-control .titlebar-control__button .titlebar-control__button--exit:after,
-        .app-window__titlebar .titlebar-secondary .titlebar-control__button .titlebar-control__button--exit:after {
-          content: '';
-          width: 9.3px;
-          height: 2px;
-          border-radius: 2px;
-          background: #d1d1d1;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%) rotate(-45deg); }
-  .app-window__titlebar .app-icon {
-    float: left;
-    font-family: "Huawen Hupo";
-    line-height: 60px;
-    margin: 0;
-    padding-left: 24px;
-    background: linear-gradient(30deg, #acb8fd 0%, #bbd9fa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; }
+  z-index: 100;
+}
+.app-window__titlebar .titlebar-control,
+.app-window__titlebar .titlebar-secondary {
+  height: 100%;
+  -webkit-app-region: no-drag;
+  float: right;
+  margin-right: 7.5px;
+}
+.app-window__titlebar .titlebar-control .titlebar-control__button,
+.app-window__titlebar .titlebar-secondary .titlebar-control__button {
+  width: 20px;
+  height: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 3.75px;
+  margin-right: 3.75px;
+  border-radius: 50%;
+  border: #eee;
+  color: #D1D1D1;
+  background: #fff;
+  font-size: 20px;
+  padding: 0 4px;
+  line-height: 20px;
+  box-shadow: #e7e6ff88 0px 8px 12px 0px;
+  cursor: pointer;
+}
+.app-window__titlebar .titlebar-control .titlebar-control__button:focus,
+.app-window__titlebar .titlebar-secondary .titlebar-control__button:focus {
+  outline: none;
+}
+.app-window__titlebar .titlebar-control .titlebar-control__button .titlebar-control__button--min,
+.app-window__titlebar .titlebar-secondary .titlebar-control__button .titlebar-control__button--min {
+  width: 8px;
+  height: 2px;
+  padding: 0 2px;
+  border-radius: 2px;
+  background: #d1d1d1;
+}
+.app-window__titlebar .titlebar-control .titlebar-control__button .titlebar-control__button--max,
+.app-window__titlebar .titlebar-secondary .titlebar-control__button .titlebar-control__button--max {
+  width: 8px;
+  height: 4px;
+  padding: 0;
+  border: #d1d1d1 2px solid;
+  border-radius: 2px;
+}
+.app-window__titlebar .titlebar-control .titlebar-control__button .titlebar-control__button--exit,
+.app-window__titlebar .titlebar-secondary .titlebar-control__button .titlebar-control__button--exit {
+  padding: 0;
+  border-radius: 2px;
+  position: relative;
+}
+.app-window__titlebar .titlebar-control .titlebar-control__button .titlebar-control__button--exit:before,
+.app-window__titlebar .titlebar-secondary .titlebar-control__button .titlebar-control__button--exit:before {
+  content: "";
+  width: 9.3px;
+  height: 2px;
+  border-radius: 2px;
+  background: #d1d1d1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.app-window__titlebar .titlebar-control .titlebar-control__button .titlebar-control__button--exit:after,
+.app-window__titlebar .titlebar-secondary .titlebar-control__button .titlebar-control__button--exit:after {
+  content: "";
+  width: 9.3px;
+  height: 2px;
+  border-radius: 2px;
+  background: #d1d1d1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.app-window__titlebar .app-icon {
+  float: left;
+  font-family: "Huawen Hupo";
+  line-height: 60px;
+  margin: 0;
+  padding-left: 24px;
+  background: linear-gradient(30deg, #acb8fd 0%, #bbd9fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 img {
-  -webkit-user-drag: none; }
+  -webkit-user-drag: none;
+}
 
 .app-window__bottombar {
   position: fixed;
@@ -99,108 +110,128 @@ img {
   -webkit-user-select: none;
   background-color: white;
   box-shadow: #e7e6ff20 0px 0px 8px 8px;
-  z-index: 100; }
-  .app-window__bottombar .bottombar-control__controller {
-    margin: 0 auto;
-    width: 16%;
-    height: 56px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center; }
-    .app-window__bottombar .bottombar-control__controller button {
-      border: none;
-      background-color: transparent;
-      padding: 0;
-      outline: none;
-      width: 45px;
-      height: 45px;
-      margin: 0 11px; }
-      .app-window__bottombar .bottombar-control__controller button img {
-        vertical-align: middle;
-        cursor: pointer; }
-    .app-window__bottombar .bottombar-control__controller .bottombar-control__button--pauseOrPlay {
-      border-radius: 50%; }
-  .app-window__bottombar .bottombar-control__timebar {
-    width: 60%;
-    height: 56px;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .app-window__bottombar .bottombar-control__timebar span {
-      display: inline-block;
-      width: 10%;
-      font-size: 14px;
-      padding: auto 3.5px;
-      text-align: center; }
-    .app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar {
-      width: 80%;
-      display: flex;
-      vertical-align: central;
-      height: 6px;
-      cursor: pointer; }
-      .app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-current {
-        background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
-        border-radius: 3px; }
-      .app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-whole {
-        height: 6px;
-        border-radius: 3px;
-        background-color: #F0F0F0;
-        position: absolute;
-        z-index: -1;
-        width: 48vw; }
-  .app-window__bottombar .bottombar-control__volume {
-    width: 16%;
-    height: 56px;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .app-window__bottombar .bottombar-control__volume .volume-icon {
-      width: 20%; }
-      .app-window__bottombar .bottombar-control__volume .volume-icon img {
-        width: 14px;
-        height: 14px;
-        vertical-align: center; }
-    .app-window__bottombar .bottombar-control__volume .volume-louder {
-      width: 80%;
-      display: flex;
-      vertical-align: central;
-      height: 6px;
-      cursor: pointer; }
-      .app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__current {
-        background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
-        border-radius: 3px; }
-      .app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__whole {
-        height: 6px;
-        border-radius: 3px;
-        background-color: #F0F0F0;
-        position: absolute;
-        z-index: -1;
-        width: 12.8vw; }
-  .app-window__bottombar .bottombar-control__playmode {
-    width: 8%;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center; }
-    .app-window__bottombar .bottombar-control__playmode img {
-      width: 14px;
-      height: 14px;
-      vertical-align: center;
-      cursor: pointer; }
+  z-index: 100;
+}
+.app-window__bottombar .bottombar-control__controller {
+  margin: 0 auto;
+  width: 16%;
+  height: 56px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.app-window__bottombar .bottombar-control__controller button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  outline: none;
+  width: 45px;
+  height: 45px;
+  margin: 0 11px;
+}
+.app-window__bottombar .bottombar-control__controller button img {
+  vertical-align: middle;
+  cursor: pointer;
+}
+.app-window__bottombar .bottombar-control__controller .bottombar-control__button--pauseOrPlay {
+  border-radius: 50%;
+}
+.app-window__bottombar .bottombar-control__timebar {
+  width: 60%;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app-window__bottombar .bottombar-control__timebar span {
+  display: inline-block;
+  width: 10%;
+  font-size: 14px;
+  padding: auto 3.5px;
+  text-align: center;
+}
+.app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar {
+  width: 80%;
+  display: flex;
+  vertical-align: central;
+  height: 6px;
+  cursor: pointer;
+}
+.app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-current {
+  background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
+  border-radius: 3px;
+}
+.app-window__bottombar .bottombar-control__timebar .timebar-time__progressbar .progressbar-whole {
+  height: 6px;
+  border-radius: 3px;
+  background-color: #F0F0F0;
+  position: absolute;
+  z-index: -1;
+  width: 48vw;
+}
+.app-window__bottombar .bottombar-control__volume {
+  width: 16%;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app-window__bottombar .bottombar-control__volume .volume-icon {
+  width: 20%;
+}
+.app-window__bottombar .bottombar-control__volume .volume-icon img {
+  width: 14px;
+  height: 14px;
+  vertical-align: center;
+}
+.app-window__bottombar .bottombar-control__volume .volume-louder {
+  width: 80%;
+  display: flex;
+  vertical-align: central;
+  height: 6px;
+  cursor: pointer;
+}
+.app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__current {
+  background: -webkit-gradient(linear, left top, right top, from(#a9b2fd), to(#bad8fa));
+  border-radius: 3px;
+}
+.app-window__bottombar .bottombar-control__volume .volume-louder .volume-louder__whole {
+  height: 6px;
+  border-radius: 3px;
+  background-color: #F0F0F0;
+  position: absolute;
+  z-index: -1;
+  width: 12.8vw;
+}
+.app-window__bottombar .bottombar-control__playmode {
+  width: 8%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app-window__bottombar .bottombar-control__playmode img {
+  width: 14px;
+  height: 14px;
+  vertical-align: center;
+  cursor: pointer;
+}
 
 .app-content {
   height: calc(100% - 130px);
   margin-top: 60px;
   overflow: hidden;
   width: 100%;
-  display: flex; }
+  display: flex;
+}
 
 .app-content__section {
   position: relative;
   height: 100%;
   width: 100%;
   background: #eee;
-  flex: 1; }
+  flex: 1;
+}
 
 .app-content__sidebar {
   position: relative;
@@ -210,71 +241,83 @@ img {
   /* margin-left: -8px; */
   box-shadow: #e7e6ff30 0px 0px 16px 16px;
   user-select: none;
-  z-index: 5; }
-  .app-content__sidebar .sidebar-content__list {
-    text-align: center;
-    padding: 0; }
-    .app-content__sidebar .sidebar-content__list .sidebar-content__item {
-      list-style-type: none;
-      font-size: 16px;
-      line-height: 48px;
-      color: #B1B1B1;
-      transition: all .5s ease-in-out; }
-      .app-content__sidebar .sidebar-content__list .sidebar-content__item:hover {
-        background: linear-gradient(30deg, #acb8fd 0%, #bbd9fa 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent; }
-  .app-content__sidebar .sidebar-info {
-    width: 100%;
-    height: 110px;
-    position: absolute;
-    bottom: 0;
-    /* background: #ddd; */
-    border-top: #ddd 1.5px solid;
-    display: flex; }
-    .app-content__sidebar .sidebar-info .sidebar-info__left {
-      width: 110px; }
-      .app-content__sidebar .sidebar-info .sidebar-info__left .sidebar-info__cover {
-        margin: 11px;
-        width: 88px;
-        height: 88px;
-        background: #eee; }
-    .app-content__sidebar .sidebar-info .sidebar-info__right {
-      flex: 1;
-      padding-top: 25px;
-      overflow: hidden; }
-      .app-content__sidebar .sidebar-info .sidebar-info__right .sidebar-info__title {
-        font-size: 16px;
-        padding-right: 10px;
-        margin: 0;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden; }
-      .app-content__sidebar .sidebar-info .sidebar-info__right .sidebar-info__artist {
-        font-size: 12px;
-        color: #B1B1B1;
-        padding: 8px 10px 0 0;
-        margin: 0;
-        width: inherit;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden; }
-  .app-content__sidebar .sidebar-resizer {
-    width: 24px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: #00000000;
-    transition: background .25s ease-out; }
-    .app-content__sidebar .sidebar-resizer:hover {
-      background: #00000005;
-      cursor: col-resize; }
+  z-index: 5;
+}
+.app-content__sidebar .sidebar-content__list {
+  text-align: center;
+  padding: 0;
+}
+.app-content__sidebar .sidebar-content__list .sidebar-content__item {
+  list-style-type: none;
+  font-size: 16px;
+  line-height: 48px;
+  color: #B1B1B1;
+  transition: all 0.5s ease-in-out;
+}
+.app-content__sidebar .sidebar-content__list .sidebar-content__item:hover {
+  background: linear-gradient(30deg, #acb8fd 0%, #bbd9fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.app-content__sidebar .sidebar-info {
+  width: 100%;
+  height: 110px;
+  position: absolute;
+  bottom: 0;
+  /* background: #ddd; */
+  border-top: #ddd 1.5px solid;
+  display: flex;
+}
+.app-content__sidebar .sidebar-info .sidebar-info__left {
+  width: 110px;
+}
+.app-content__sidebar .sidebar-info .sidebar-info__left .sidebar-info__cover {
+  margin: 11px;
+  width: 88px;
+  height: 88px;
+  background: #eee;
+}
+.app-content__sidebar .sidebar-info .sidebar-info__right {
+  flex: 1;
+  padding-top: 25px;
+  overflow: hidden;
+}
+.app-content__sidebar .sidebar-info .sidebar-info__right .sidebar-info__title {
+  font-size: 16px;
+  padding-right: 10px;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.app-content__sidebar .sidebar-info .sidebar-info__right .sidebar-info__artist {
+  font-size: 12px;
+  color: #B1B1B1;
+  padding: 8px 10px 0 0;
+  margin: 0;
+  width: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.app-content__sidebar .sidebar-resizer {
+  width: 24px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #00000000;
+  transition: background 0.25s ease-out;
+}
+.app-content__sidebar .sidebar-resizer:hover {
+  background: #00000005;
+  cursor: col-resize;
+}
 
 @font-face {
   font-family: "Huawen Hupo";
-  src: url("../fonts/huawen_hupo.woff2"); }
-
+  src: url("../fonts/huawen_hupo.woff2");
+}
 #audio-play__section {
   background-color: #FFFFFF;
   position: absolute;
@@ -283,118 +326,141 @@ img {
   margin-top: 60px;
   overflow: hidden;
   width: 100%;
-  display: flex; }
-  #audio-play__section .audio-play__section--left {
-    width: 50%;
-    max-width: 80vh;
-    margin: 0 auto; }
-    #audio-play__section .audio-play__section--left .audio-play__left--img {
-      margin: 20vh auto 15vh auto;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
-      #audio-play__section .audio-play__section--left .audio-play__left--img img {
-        border-radius: 50%;
-        width: 35vh;
-        height: 35vh; }
-    #audio-play__section .audio-play__section--left .audio-play__left--button {
-      margin: 10vh auto;
-      width: 35vh;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center; }
-      #audio-play__section .audio-play__section--left .audio-play__left--button button {
-        border: none;
-        background-color: transparent;
-        padding: 0;
-        outline: none;
-        width: 4.5vh;
-        height: 4.5vh; }
-        #audio-play__section .audio-play__section--left .audio-play__left--button button img {
-          vertical-align: middle;
-          cursor: pointer;
-          width: 100%;
-          height: 100%; }
-  #audio-play__section .audio-play__section--right {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto; }
-    #audio-play__section .audio-play__section--right .audio-play__right--information {
-      height: 25vh;
-      box-shadow: #e7e6ff88 0 16px 8px -8px; }
-      #audio-play__section .audio-play__section--right .audio-play__right--information h1 {
-        margin: 5vh 0 5vh 0;
-        color: black;
-        font-size: 6vh;
-        font-family: "Noto Sans Med";
-        text-align: center; }
-      #audio-play__section .audio-play__section--right .audio-play__right--information div {
-        display: flex;
-        justify-content: center; }
-        #audio-play__section .audio-play__section--right .audio-play__right--information div label {
-          font-family: "Noto Sans";
-          color: #B1B1B1;
-          font-size: 2.5vh;
-          margin-right: 1vw; }
-        #audio-play__section .audio-play__section--right .audio-play__right--information div span {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          text-align: center;
-          width: 30%;
-          display: inline-block;
-          font-family: "Noto Sans";
-          font-size: 2.5vh;
-          margin-bottom: 1vh;
-          background: #ACB8FD;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          letter-spacing: 1px; }
-    #audio-play__section .audio-play__section--right .audio-play__right--lrc {
-      height: calc(100vh - 25vh - 130px);
-      overflow-y: scroll;
-      overflow-x: hidden;
-      scroll-behavior: smooth; }
-      #audio-play__section .audio-play__section--right .audio-play__right--lrc ul {
-        position: relative;
-        margin-top: 27vh;
-        margin-bottom: 27vh;
-        list-style: none;
-        padding: 0;
-        transition: all .5s; }
-        #audio-play__section .audio-play__section--right .audio-play__right--lrc ul li {
-          font-family: "Noto Sans";
-          font-size: 18px;
-          color: #b1b1b1;
-          line-height: 56px;
-          font-weight: 400;
-          text-align: center;
-          letter-spacing: 5px;
-          height: 50px; }
-        #audio-play__section .audio-play__section--right .audio-play__right--lrc ul li.selected {
-          font-family: "Noto Sans Med";
-          font-size: 24px;
-          background: #ADB8F1;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: 600; }
-    #audio-play__section .audio-play__section--right .audio-play__right--lrc::-webkit-scrollbar {
-      display: none; }
+  display: flex;
+}
+#audio-play__section .audio-play__section--left {
+  width: 50%;
+  max-width: 80vh;
+  margin: 0 auto;
+}
+#audio-play__section .audio-play__section--left .audio-play__left--img {
+  margin: 20vh auto 15vh auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#audio-play__section .audio-play__section--left .audio-play__left--img img {
+  border-radius: 50%;
+  width: 35vh;
+  height: 35vh;
+}
+#audio-play__section .audio-play__section--left .audio-play__left--button {
+  margin: 10vh auto;
+  width: 35vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#audio-play__section .audio-play__section--left .audio-play__left--button button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  outline: none;
+  width: 4.5vh;
+  height: 4.5vh;
+}
+#audio-play__section .audio-play__section--left .audio-play__left--button button img {
+  vertical-align: middle;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+#audio-play__section .audio-play__section--right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+#audio-play__section .audio-play__section--right .audio-play__right--information {
+  height: 25vh;
+  box-shadow: #e7e6ff88 0 16px 8px -8px;
+}
+#audio-play__section .audio-play__section--right .audio-play__right--information h1 {
+  margin: 5vh 2vh 5vh 2vh;
+  color: black;
+  font-size: 5vh;
+  font-family: "Noto Sans Med";
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+#audio-play__section .audio-play__section--right .audio-play__right--information div {
+  display: flex;
+  justify-content: center;
+}
+#audio-play__section .audio-play__section--right .audio-play__right--information div label {
+  font-family: "Noto Sans";
+  color: #B1B1B1;
+  font-size: 2.5vh;
+  margin-right: 1vw;
+}
+#audio-play__section .audio-play__section--right .audio-play__right--information div span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  width: 30%;
+  display: inline-block;
+  font-family: "Noto Sans";
+  font-size: 2.5vh;
+  margin-bottom: 1vh;
+  background: #ACB8FD;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+#audio-play__section .audio-play__section--right .audio-play__right--lrc {
+  height: calc(100vh - 25vh - 130px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+#audio-play__section .audio-play__section--right .audio-play__right--lrc ul {
+  position: relative;
+  margin-top: 27vh;
+  margin-bottom: 27vh;
+  list-style: none;
+  padding: 0;
+  transition: all 0.5s;
+}
+#audio-play__section .audio-play__section--right .audio-play__right--lrc ul li {
+  font-family: "Noto Sans";
+  font-size: 18px;
+  color: #b1b1b1;
+  line-height: 50px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 5px;
+  min-height: 50px;
+}
+#audio-play__section .audio-play__section--right .audio-play__right--lrc ul li.selected {
+  font-family: "Noto Sans Med";
+  font-size: 24px;
+  background: #ADB8F1;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+#audio-play__section .audio-play__section--right .audio-play__right--lrc::-webkit-scrollbar {
+  display: none;
+}
 
 @font-face {
   font-family: "PingFang";
   font-weight: 400;
-  src: url("../fonts/PingFang.woff2"); }
-
+  src: url("../fonts/PingFang.woff2");
+}
 body {
   background: #FFF;
   margin: 0;
-  font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif; }
+  font-family: "PingFang", "ping fang", "Microsoft Yahei", sans-serif;
+}
 
 .app-window {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  z-index: 1; }
+  z-index: 1;
+}
+
+/*# sourceMappingURL=style.css.map */
