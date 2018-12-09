@@ -37,6 +37,7 @@
 }
 
 .more_ul {
+  user-select: none;
   padding: 0;
   margin: 0 auto;
   position: relative;
@@ -63,7 +64,7 @@
 .more_nav_ul_container {
   width: 80vw;
   text-align: center;
-
+  user-select: none;
   > ul {
     list-style-type: none;
     padding: 0;
@@ -87,7 +88,7 @@
 
 .section_songs {
   width: 95%;
-
+  user-select: none;
   h4 {
     margin: 32px;
     font-size: 24px;
@@ -135,4 +136,12 @@
   h5 {
     color: white !important;
   }
+}
+
+.btn-control {
+  transition: opacity .6s cubic-bezier(.33, .63, .65, .99);
+}
+
+.btn-control:hover{
+  opacity: 0.6;
 }

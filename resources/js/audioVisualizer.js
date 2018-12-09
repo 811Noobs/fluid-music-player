@@ -79,13 +79,42 @@
 
 // }
 
+var limitLoop = function (fn, fps) {
+
+    // Use var then = Date.now(); if you
+    // don't care about targetting < IE9
+    var then = new Date().getTime();
+
+    // custom fps, otherwise fallback to 60
+    fps = fps || 60;
+    var interval = 1000 / fps;
+
+    return (function loop(time) {
+        requestAnimationFrame(loop);
+
+        // again, Date.now() if it's available
+        var now = new Date().getTime();
+        var delta = now - then;
+
+        if (delta > interval) {
+            // Update time
+            // now - (delta % interval) is an improvement over just 
+            // using then = now, which can end up lowering overall fps
+            then = now - (delta % interval);
+
+            // call the fn
+            fn();
+        }
+    }(0));
+};
+
 
 window.onload = function () {
-    const audio1 = document.getElementById('audio1');
+    //const audio = document.getElementById('audio');
     const audioContext = new AudioContext();
 
     // 创建媒体源,除了audio本身可以获取，也可以通过audioContext对象提供的api进行媒体源操作
-    const audioSrc = audioContext.createMediaElementSource(audio1);
+    const audioSrc = audioContext.createMediaElementSource(audio);
     // 创建分析机 
     const analyser = audioContext.createAnalyser();
     // 媒体源与分析机连接
@@ -103,8 +132,11 @@ window.onload = function () {
     //canvas.height = window.innerHeight;
     var oW = canvas.width;
     var oH = canvas.height;
+    // var oW = 240;
+    // var oH = 240;
+    console.log(canvas.height)
     // 音频图的条数
-    var count = 18;
+    var count = 2;
     // 缓冲区:进行数据的缓冲处理，转换成二进制数据
     var voiceHeight = new Uint8Array(analyser.frequencyBinCount);
     // console.log(voiceHeight);
@@ -127,14 +159,14 @@ window.onload = function () {
             //ctx.fillRect(oW / 2 + (i * 10), oH / 2, 7, -audioHeight);
             //ctx.fillRect(oW / 2 - (i * 10), oH / 2, 7, -audioHeight);
             ctx.beginPath();
-            ctx.arc(oW / 2, oH / 2, audioHeight, 0, 2 * Math.PI);
-            ctx.fillStyle = "rgba(192, 80, 77, 0.2)";
+            ctx.arc(oW / 2, oH / 2, Math.round(Math.pow(audioHeight, 0.7)) + 180, 0, 2 * Math.PI);
+            ctx.fillStyle = "rgba(192, 80, 77, 0.1)";
             ctx.closePath();
             ctx.fill();
         }
-        window.requestAnimationFrame(arguments.callee);
+        //window.requestAnimationFrame(arguments.callee);
     }
-    function drawRound() {
+    function drawDot() {
         // 将当前的频率数据复制到传入的无符号字节数组中，做到实时连接
         analyser.getByteFrequencyData(voiceHeight);
         // console.log(voiceHeight);
@@ -169,7 +201,7 @@ window.onload = function () {
         // 自定义获取数组里边数据的频步
         var step = Math.round(voiceHeight.length / count);
         ctx.clearRect(0, 0, oW, oH);
-        for (var i = 0; i < count; i ++) {
+        for (var i = 0; i < count; i++) {
             //if (voiceHeight[step * i] < 20) { continue };
             //if (voiceHeight[step * i]>140){continue};
 
@@ -196,12 +228,12 @@ window.onload = function () {
                 ctx.quadraticCurveTo(x2, y2, xmid2, ymid2)
 
             }
-            if (i > 0 && i < count-1) {
+            if (i > 0 && i < count - 1) {
                 //ctx.moveTo(xmid1, ymid1);
                 ctx.quadraticCurveTo(x2, y2, xmid2, ymid2);
 
             }
-            if (i >= count-1) {
+            if (i >= count - 1) {
                 ctx.quadraticCurveTo(x2, y2, x3, y3)
                 ctx.closePath();
                 ctx.fillStyle = "rgba(192, 80, 77, 0.2)";
@@ -210,8 +242,8 @@ window.onload = function () {
         }
         window.requestAnimationFrame(arguments.callee);
     }
-    drawCurve();
-
+    //drawRound();
+    limitLoop(drawRound, 60);
 
     /*
       analyserNode 提供了时时频率以及时间域的分析信息
@@ -221,5 +253,3 @@ window.onload = function () {
               ffiSize属性值是从32位到32768范围内的2的非零幂,默认值是2048
     */
 }
-
-var a = 1;
