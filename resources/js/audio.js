@@ -22,6 +22,7 @@ const coverSidebar = document.querySelector(".sidebar-info__cover");
 const titleSidebar = document.querySelector(".sidebar-info__title");
 const artistSidebar = document.querySelector(".sidebar-info__artist");
 
+let volumnButton = document.querySelector("#volume-icon");
 
 let intervalTime = 0;
 let lastAudioTime = 0;
@@ -47,7 +48,8 @@ class controllerClass {
                 db.delete([["id", i]]);
             }
         }
-        [lastId, firstId] = readAndSetDatabase();
+        db.save();
+        [lastId, firstId] = [db.read()[0].values[0][1], db.read()[0].values[db.read()[0].values.length - 1][1]];
         while (1) {
             if (db.read([["id", id]]).id === undefined) {
                 if (id >= lastId) {
@@ -314,7 +316,7 @@ function readAndSetDatabase() {
     let musicArray = fs.readdirSync("./resources/musics");
     let _name, _singer, _album, _lrc, _id, _path;
     for (let i = 0; i < musicArray.length; i++) {
-        if (db.read([["path", `resources/musics/${musicArray[i]}`]]).id !== undefined) {
+        if (typeof db.read([["path", `resources/musics/${musicArray[i]}`]]).id === "number") {
             continue;
         }
         NodeID3.read(`resources/musics/${musicArray[i]}`, (err, tags) => {
@@ -465,4 +467,14 @@ function scrollLyric() {
     }
 }
 
+let previousVolumn = 0;
 
+function clickVolumnImg(e) {
+    if(controller.volume==0){
+        controller.setVolume(previousVolumn);
+    } else {
+        previousVolumn = controller.volume;
+        controller.setVolume(0);
+    }
+}
+volumnButton.addEventListener("click",clickVolumnImg);

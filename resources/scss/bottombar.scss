@@ -83,6 +83,7 @@ img {
         align-items: center;
         .volume-icon {
             width: 20%;
+            cursor: pointer;
             img {
                 width: $bottom-bar-height*0.2;
                 height: $bottom-bar-height*0.2;
