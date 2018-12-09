@@ -3,9 +3,9 @@ let SQL = require('sql.js');
 
 class Database {
     constructor() {
-        this.cols = ["name", "rank" , "lyc", "path", "singer", "album", "hits"];
+        this.cols = ["name", "id" , "lrc", "path", "singer", "album", "hits"];
         try {
-            let filebuffer = fs.readFileSync('hzytql.sqlite');
+            let filebuffer = fs.readFileSync('fluid.sqlite');
             this.db = new SQL.Database(filebuffer);
         } catch (e) {
             this.db = new SQL.Database();
@@ -17,11 +17,11 @@ class Database {
     save() {
         let data = this.db.export();
         let buffer = Buffer.from(data);
-        fs.writeFileSync("hzytql.sqlite", buffer);
+        fs.writeFileSync("fluid.sqlite", buffer);
     }
 
     init() {
-        this.db.run("CREATE TABLE list (name CHAR(100),rank INT(5),lyc VARCHAR(500),path VARCHAR(500),singer CHAR(50),album CHAR(50),hits INT(10));");
+        this.db.run("CREATE TABLE list (name CHAR(100),id INT(5),lrc VARCHAR(500),path VARCHAR(500),singer CHAR(50),album CHAR(50),hits INT(10));");
     }
 
     buildPar(par) {
@@ -45,10 +45,10 @@ class Database {
 
     read(par) {
         if (par === undefined) {
-            return this.db.exec(`SELECT * FROM list ORDER BY rank DESC;`);
+            return this.db.exec(`SELECT * FROM list ORDER BY id DESC;`);
         } else {
             let [build_par_str, build_par_obj] = this.buildPar(par);
-            let prepare = this.db.prepare(`SELECT * FROM list WHERE ${build_par_str} ORDER BY rank DESC;`);
+            let prepare = this.db.prepare(`SELECT * FROM list WHERE ${build_par_str} ORDER BY id DESC;`);
             return prepare.getAsObject(build_par_obj);
         }
 
