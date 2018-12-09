@@ -2,7 +2,6 @@ const db = require("electron").remote.require("./resources/js/database.js");
 const fs = require("fs");
 const NodeID3 = require('node-id3');
 var configuration = JSON.parse(fs.readFileSync("./resources/configuration.json"));
-
 let information;
 //获取文件目录下的歌曲和歌词music和lrc为对象{歌曲名：“path”}前者不带后缀，后者带后缀
 let audio = document.querySelector("audio");
@@ -33,6 +32,7 @@ let [lastId, firstId] = readAndSetDatabase();
 class controllerClass {
     constructor(volume, id) {
         this.volume = volume;
+        console.log("here");
         for (let i = 1; i <= lastId; i++) {
             if (db.read([["id", i]]).id === undefined) {
                 continue;
@@ -43,7 +43,7 @@ class controllerClass {
         [lastId,firstId]=readAndSetDatabase();
         while(1){
             if(db.read([["id",id]]).id===undefined){
-                if(id===lastId){
+                if(id>=lastId){
                     id=1;
                 }else{
                     id++;
@@ -327,29 +327,6 @@ function readAndSetDatabase() {
     }
     db.save();
     return [db.read()[0].values[0][1], db.read()[0].values[db.read()[0].values.length - 1][1]];
-    // NodeID3.read(music[`${controller.musicName}`], (err, tags) => {
-    //     title.innerText = (tags.title===undefined)?controller.musicName:tags.title;
-    //     singer.innerText = (tags.artist===undefined)?"未知艺术家":tags.artist;
-    //     album.innerText = (tags.album===undefined)?"未知唱片集":tags.album;
-    //     //if(tags.image.imageBuffer)
-    //     musicImg.src = `data:;base64,${tags.image.imageBuffer.toString('base64')}`;
-    // });
-
-
-    // let music = {};
-    // let lrc = {};
-    // let musicArray = fs.readdirSync("./resources/musics");
-    // let lrcArray = fs.readdirSync("./resources/lrc");
-    // let name;
-    // for (let i = 0; i < musicArray.length; i++) {
-    //     name = musicArray[i].replace(/\.[\S]+/, "");
-    //     music[name] = `resources/musics/${musicArray[i]}`;
-    // }
-    // for (let i = 0; i < lrcArray.length; i++) {
-    //     name = lrcArray[i].replace(/\.[\S]+/, "");
-    //     lrc[name] = `resources/lrc/${lrcArray[i]}`;
-    // }
-    // return [music, lrc];
 }
 
 function transTimeToMin(value) {
